@@ -2,7 +2,7 @@
 
 **Project slug:** `vibesec`
 **Owner:** Project owner
-**Last updated:** 2026-10-01
+**Last updated:** 2026-10-12
 
 ## 1. Position
 
@@ -49,6 +49,7 @@ Milestones and Quick Mode. Engineering maturity L0: local document checks throug
 | D3 | Scrutiny: PROCEED WITH FIXES for the owned-fixture slice. | Agent-derived conclusion; primary-source audit linked in Scrutiny | Contradicting runtime evidence |
 | D4 | Model produces bounded plan data; code owns scope, execution limits, and confirmed findings. | Proposed design documented in PRD/SDD/RFC | Target or autonomy expansion |
 | D5 | Share the draft suite and portable development onboarding through the existing private VibeSec repository. The separate engine uses the available 2.0.0 team baseline. | Human Decision: user's repository update request; available revision verified on GitHub | Shared engine release or team workflow change |
+| D6 | Public documentation stamp is FMD v3.0.1. Private engine links and local drive paths stay out of that stamp. | Human Decision: user's upgrade and privacy request | A readable engine upgrade guide requires a further document migration |
 
 ## 6. Context Exclusions
 

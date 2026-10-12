@@ -1,7 +1,7 @@
 # Documentation Index: vibesec
 
 **Project slug:** `vibesec`
-**Built on FMD:** v2.0.1
+**Built on FMD:** v3.0.1
 
 ---
 

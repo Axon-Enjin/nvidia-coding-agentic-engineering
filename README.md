@@ -28,15 +28,9 @@ Keep provider credentials in your local environment. Share access through the te
 
 ## Check the documentation
 
-Document tooling uses a separate private repository. If you have access, clone it beside this project and use the available team baseline, version 2.0.0:
+Document tooling is FMD v3.0.1.
 
-```bash
-git clone FMD framework ../FMD
-git -C ../FMD checkout --detach 843f84a297c73a1fdf8b65483455e87e208a3707
-python scripts/fmd.py check
-```
-
-Use Python 3.12; on systems where it is named `python3`, substitute that command. An existing tooling clone can be selected with `FMD_ROOT` or `python scripts/fmd.py check --fmd-root /path/to/FMD`. The launcher also discovers a clone named `FMD` one or two directories above this repository. The original drafts were authored with local tooling version 2.0.1; that unpublished revision is not required for team setup.
+Use Python 3.12; on systems where it is named `python3`, substitute that command. An existing local directory can be selected with `FMD_ROOT` or `python scripts/fmd.py check --fmd-root /path/to/FMD`. The launcher also discovers a directory named `FMD` one or two directories above this repository.
 
 PowerShell, from this directory:
 
