@@ -67,4 +67,4 @@ Enable the optional local pre-commit check with `git config --local core.hooksPa
 
 A demo URL and video are not available yet. The planned recording shows a synthetic cross-user read, its evidence, and a repaired comparison. An empty or incomplete result will not be presented as proof of security.
 
-A product license has not been selected. Review release contents, component licenses, and rights before public submission.
+The product license is MIT. Review release contents, component licenses, and rights before public submission.

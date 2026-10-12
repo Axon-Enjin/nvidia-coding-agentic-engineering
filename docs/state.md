@@ -12,7 +12,7 @@
 | Entered on | 2026-09-30 |
 | Exit condition | Scope and acceptance criteria reviewed; proceed to the documented runtime proof slice. |
 | Next milestone | Shape, starting with the owned-fixture sandbox and inference spike |
-| Current blocker | None for setup. Real remote execution needs account access and runtime proof; Release also needs a host, named operator, tested controls, and distribution/license decisions. |
+| Current blocker | None for setup. Real remote execution needs account access and runtime proof; Release also needs a host, named operator, and tested controls. The product license is MIT. |
 | Owner of the next step | Project owner and implementer |
 
 **What we are building:** A bounded security demo that tests an owned synthetic app in independent sandbox branches, verifies evidence, and repeats checks against a repaired fixture.
@@ -38,7 +38,7 @@ Milestones and Quick Mode. Engineering maturity L0: local document checks throug
 | A3 | Branching, explicit restart, network denial/loopback, cancellation, and receipt reconciliation work as planned. | Runtime feasibility unproven; implementer | Before enabling remote execution |
 | A4 | Nine probes, three active attempts, five-minute deadline, and PRD token limits are suitable. | Performance/cost targets unmeasured; implementer | Integration benchmark |
 | A5 | Composite persona represents a real review need. | Customer value unverified; project owner | Before external pilot or demand claims |
-| A6 | Hosting, exact available model ID, provider pricing/data terms, real on-call contact, and product distribution/license choice remain unresolved. | These are not fabricated by the setup; project owner | Respective integration and Release gates |
+| A6 | Hosting, exact available model ID, provider pricing/data terms, and real on-call contact remain unresolved. The product license is MIT. | These are not fabricated by the setup; project owner | Respective integration and Release gates |
 
 ## 5. Decisions
 
