@@ -1,7 +1,7 @@
 # TRACK 1: Coding & Agentic Engineering. Deep Research Meta-Prompt
 
 > **Operator notes (do not paste this block)**
-> - Runs in Gemini Deep Research, ChatGPT Deep Research, Perplexity Deep Research, Claude Research, or a agent pipeline pipeline run.
+> - Runs in Gemini Deep Research, ChatGPT Deep Research, Perplexity Deep Research, Claude Research, or a research then review pipeline run.
 > - Copy everything below the `=== PROMPT START ===` line.
 > - Fill in `{{OPTIONAL_FOCUS}}` or leave it blank to allow an open scan.
 > - Expected output is one report of about 6–10k words, with tables, written to `research/track1_report.md`.

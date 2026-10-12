@@ -39,7 +39,7 @@ No persistent roster. A single research delegation produced the feasibility note
 
 | Layer | Technology | Pin / state | Verified | Source |
 |-------|------------|-------------|----------|--------|
-| Documentation engine | FMD | 2.0.0 team baseline; drafts authored with local 2.0.1 | 2026-10-01 | README team revision; VERSION in the located engine clone |
+| Documentation engine | FMD | FMD v3.0.1 | 2026-10-12 | README stamp |
 | Local interpreter | Python | 3.12.14 observed in bundled runtime | 2026-09-30 | Interpreter `--version`; docs.python.org/3.12 |
 | Control API | FastAPI / Pydantic | Proposed; exact dependency lock pending first implementation | 2026-09-30 | Confirm official docs and resolved packages before writing framework code |
 | Data | SQLite via Python | Proposed single-instance store; runtime version recorded at implementation | 2026-09-30 | Python sqlite3 and SDD §3 |
@@ -73,7 +73,7 @@ README and pitch state planned versus measured behavior clearly. Keep internal I
 
 ## 5.3 Engineering Maturity
 
-L0: local documentation validation. The pre-commit check uses the existing FMD clone. No remote document CI or application checks are configured. Application maturity is not L1 until meaningful application tests run reliably in CI. Preview, automatic deploy, staged rollout, alerting, backups, and rollback rehearsal are absent. PRD §9 is the authoritative rollback plan; OPS records operational readiness.
+L0: local documentation validation. The optional pre-commit check runs when FMD v3.0.1 is available and skips otherwise. No remote document CI or application checks are configured. Application maturity is not L1 until meaningful application tests run reliably in CI. Preview, automatic deploy, staged rollout, alerting, backups, and rollback rehearsal are absent. PRD §9 is the authoritative rollback plan; OPS records operational readiness.
 
 ## 6. Root References
 

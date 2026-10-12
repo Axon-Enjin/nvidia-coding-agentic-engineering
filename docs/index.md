@@ -1,7 +1,7 @@
 # Documentation Index: vibesec
 
 **Project slug:** `vibesec`
-**Built on FMD:** v2.0.1
+**Built on FMD:** v3.0.1
 
 ---
 
@@ -11,7 +11,7 @@
 
 | Document | File | Version | Status | Last Updated | Last Reconciled |
 |----------|------|---------|--------|--------------|-----------------|
-| STATE · Operating position | [state.md](state.md) | - | Current | 2026-10-01 | N/A |
+| STATE · Operating position | [state.md](state.md) | - | Current | 2026-10-12 | N/A |
 | IDEA · Idea Brief | [idea-vibesec.md](idea-vibesec.md) | 0.1 | Draft | 2026-09-30 | 2026-09-30 |
 | SCRUTINY · Scrutiny Gate | [scrutiny-vibesec.md](scrutiny-vibesec.md) | 0.1 | Draft | 2026-09-30 | 2026-09-30 |
 | PRD · Product Requirements | [prd-vibesec.md](prd-vibesec.md) | 0.1 | Draft | 2026-09-30 | 2026-09-30 |
