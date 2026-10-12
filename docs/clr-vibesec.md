@@ -52,7 +52,7 @@ Judge instructions must state synthetic scope, live versus replay behavior, limi
 
 ## 5. IP and Distribution
 
-The FMD engine stays in its separate private clone, where its original proprietary license and notices remain. This repository references that clone for local authoring and validation; its access is separate from VibeSec repository access. Product code does not yet exist and no product license has been selected. Before a public hackathon release, the owner must choose an eligible product license and review distribution rights for included components. Keep software/component notices distinct. No brand clearance or model-output ownership conclusion is claimed. System fonts and a plain-text wordmark avoid unlicensed media assets.
+Authoring uses FMD v3.0.1 outside this repository. This repository keeps the project documents and does not vendor the engine. Product code does not yet exist and no product license has been selected. Before a public hackathon release, the owner must choose an eligible product license and review distribution rights for included components. Keep software/component notices distinct. No brand clearance or model-output ownership conclusion is claimed. System fonts and a plain-text wordmark avoid unlicensed media assets.
 
 ## 6. Platforms
 
@@ -66,7 +66,7 @@ Proposed default postures for owner review, not a claim of accepted financial or
 |----|----------------------|---------|----------------------|-------|-----------------|----------|
 | CLR-P1 | Authority to test and computer misuse | COMPLY | Only owned fixtures; unauthorized testing can create personal criminal exposure | Project owner | Any target or data expansion | Disable remote dispatch and reject unsupported targets |
 | CLR-P2 | Personal-data processing and AI privacy | COMPLY | Minimize sessions/logs; synthetic inputs; assess actual host/provider handling before release | Project owner | Hosting choice or any real data | Keep synthetic-only mode; remove unnecessary collection |
-| CLR-P3 | Component/model licensing and hackathon source release | COMPLY | Preserve included component notices; select eligible product license; keep the authoring engine in its source clone | Project owner | Before public distribution or submission | Keep release private until rights and contents are settled |
+| CLR-P3 | Component/model licensing and hackathon source release | COMPLY | Preserve included component notices; select eligible product license; keep FMD v3.0.1 outside this repository | Project owner | Before public distribution or submission | Hold distribution until rights and contents are settled |
 | CLR-P4 | New jurisdictions or consequential AI decisions | DEFER | No commercial target market or consequential automated decisions in this slice | Project owner | External pilot, sale, or changed AI use | Restrict new scope and reassess |
 
 No CONTEST or ENGAGE posture is selected. Legal advice or counsel may inform future obligations; the current plan makes no determination for a commercial launch.

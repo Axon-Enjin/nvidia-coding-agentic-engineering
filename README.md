@@ -14,7 +14,7 @@ The planned integration uses NVIDIA Nemotron through Nebius inference and Token 
 
 ## Start developing
 
-Clone this private repository with an account that has team access:
+Clone this repository:
 
 ```bash
 git clone https://github.com/Axon-Enjin/nvidia-coding-agentic-engineering.git
@@ -46,7 +46,7 @@ python scripts/fmd.py check
 python scripts/fmd.py record --action "Describe completed work"
 ```
 
-After the tooling check passes, enable the optional local pre-commit check with `git config --local core.hooksPath .githooks`. It uses the same tooling clone and requires Python. If tooling access is pending, teammates can read the product specs and begin implementation; document validation requires separate tooling access. Application CI and install/run instructions will be added with the first executable slice.
+Enable the optional local pre-commit check with `git config --local core.hooksPath .githooks`. The hook runs the documentation check when FMD v3.0.1 is available and skips it otherwise. Teammates can read the product specs and begin implementation without that engine. Application CI and install/run instructions will be added with the first executable slice.
 
 ## Documentation
 

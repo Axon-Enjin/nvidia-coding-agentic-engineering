@@ -73,7 +73,7 @@ README and pitch state planned versus measured behavior clearly. Keep internal I
 
 ## 5.3 Engineering Maturity
 
-L0: local documentation validation. The pre-commit check uses the existing FMD clone. No remote document CI or application checks are configured. Application maturity is not L1 until meaningful application tests run reliably in CI. Preview, automatic deploy, staged rollout, alerting, backups, and rollback rehearsal are absent. PRD §9 is the authoritative rollback plan; OPS records operational readiness.
+L0: local documentation validation. The optional pre-commit check runs when FMD v3.0.1 is available and skips otherwise. No remote document CI or application checks are configured. Application maturity is not L1 until meaningful application tests run reliably in CI. Preview, automatic deploy, staged rollout, alerting, backups, and rollback rehearsal are absent. PRD §9 is the authoritative rollback plan; OPS records operational readiness.
 
 ## 6. Root References
 
