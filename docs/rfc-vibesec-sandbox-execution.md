@@ -54,7 +54,7 @@ Networking: verify the low-level provider configuration and loopback operation b
 
 ## 5. AI Implementation Notes
 
-The model sees the synthetic contract and catalog and returns `{fixture_id, probe_ids, rationale}`. Rationale is explanation only. Reject additional fields, unknown IDs, duplicates, over-budget counts, target overrides, or tool requests. Provider structured output is a convenience, not an enforcement mechanism. Record exact model ID only after authenticated catalog selection and evaluation.
+The model sees a registered synthetic brief, contract, and catalog and returns `{fixture_id, promise_id, probe_ids, rationale}`. The promise ID selects a reviewed rule and its exact required probe pair; rationale is explanation only. Reject additional fields, unknown IDs, duplicates, over-budget counts, target overrides, or tool requests. Provider structured output is a convenience, not an enforcement mechanism. Record exact model ID only after authenticated catalog selection and evaluation. The local MVP enforces this schema, while remote execution remains disabled until the spike.
 
 ## 6. Security, Privacy & Performance
 

@@ -71,7 +71,7 @@ Base spacing 4px; scale 4, 8, 12, 16, 24, 32, 48px. Maximum content width 1280px
 
 Buttons: 44px minimum target height; primary starts a declared fixture run, secondary exports, destructive stops work. Hover darkens the semantic fill; focus has a visible 2px outline with 2px offset. Disabled controls remain labeled with a reason, rather than opacity alone.
 
-Inputs: fixture and profile selects only, with visible labels and inline validation. No target URL input. Scope and budgets are read-only facts supplied by the service.
+Inputs: registered synthetic brief and planner-mode selects in the local MVP; the future remote run also shows fixture/profile and declared limits. All have visible labels and inline validation. No target URL input. Scope and budgets are read-only facts supplied by the service.
 
 Run header: fixture revision, live/replay indicator, status, elapsed time, completed/total attempts, and cleanup state. Probe row: ID/name, state, duration, and evidence link. Finding panel: assertion, observation, redacted request/response, provenance, and limitations. Comparison rows match probe IDs and use labels for confirmed, not reproduced, and inconclusive.
 
@@ -91,7 +91,7 @@ Low visual variance, low motion, moderate information density. The evidence is t
 
 ## 8. Implementation Quality Gate
 
-No interface has been implemented or audited. Accessibility, performance, responsive behavior, theming, and interface anti-pattern checks remain unexecuted. Before a demo release, no critical or high-severity interface defect may remain, and every primary state must be tested. Do not report a taste or accessibility score until an actual audit exists.
+A loopback browser interface has been implemented and its initial desktop layout inspected. Accessibility, performance, responsive states, and a complete interface audit remain unexecuted. Before a demo release, no critical or high-severity interface defect may remain, and every primary state must be tested. Do not report a taste or accessibility score until an actual audit exists.
 
 | Surface | Example |
 |---------|---------|

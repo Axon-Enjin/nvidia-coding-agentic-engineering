@@ -11,11 +11,11 @@
 **QAD:** [qad-vibesec.md](qad-vibesec.md)
 **CLR:** [clr-vibesec.md](clr-vibesec.md)
 
-An assurance plan, not certification or evidence of a deployed system. Every mitigation below is planned and untested.
+An assurance plan, not certification or evidence of a deployed system. Local schema and fixture checks now run; remote provider and release mitigations remain untested.
 
 ## 0. Trigger and Scope
 
-PRD-F2 supplies an AI plan selector; PRD-F4 separates explanation from proof. The control plane consumes a synthetic fixture contract and a fixed probe catalog. The model chooses IDs and writes rationale. It cannot choose hosts, credentials, commands, budgets, confirmed classifications, repairs, or deployments.
+PRD-F2 supplies an AI promise selector; PRD-F4 separates explanation from proof. The control plane consumes a registered synthetic brief, fixture contract, and fixed promise/probe catalog. The model chooses a reviewed promise ID and its exact probe pair, then writes rationale. It cannot choose hosts, credentials, commands, budgets, confirmed classifications, repairs, or deployments. The human reviews the proposed rule before starting execution.
 
 No output determines a person's rights, credit, employment, health, or access. Reports inform a human reviewer. Any future deployment gate or customer-data ingestion changes this scope.
 
@@ -25,7 +25,7 @@ Intended use: propose bounded tests for an owned synthetic demo and explain veri
 
 One NVIDIA Nemotron model served through Nebius is proposed. Exact model ID, provider version, SDK versions, and operating region are pending authenticated catalog verification and evaluation. Candidate IDs in the [research note](research-vibesec.md) are not a deployment pin.
 
-No fine-tuning or customer training data. Runtime input is synthetic contract metadata and catalog entries; fixture-controlled text is untrusted. Output has fixture ID, 1 to 9 distinct allowlisted probe IDs, and a bounded rationale. Local validation rejects extra fields and unsupported values. One repair call maximum; failure remains visible. A model refusal is not evidence that the app passed.
+No fine-tuning or customer training data. Runtime input is a registered synthetic brief, contract metadata, and catalog entries; fixture-controlled text is untrusted. Output has fixture ID, one reviewed promise ID, that promise's required probe IDs, and a bounded rationale. Local validation rejects extra fields and unsupported values. The current local MVP makes one request and rejects malformed output without an automatic repair call; the broader one-repair-call policy remains planned. A model refusal is not evidence that the app passed.
 
 Provider retention/training/region terms are unresolved for the actual account. The synthetic-only boundary applies until CLR is reconciled. Known limitations: limited catalog coverage, model plan relevance, cold starts, unavailable provider features, missed vulnerabilities, and false explanations. No detection or latency benchmark exists.
 

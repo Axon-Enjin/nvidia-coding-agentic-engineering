@@ -1,25 +1,51 @@
 # VibeSec
 
-[![Status: Local proof](https://img.shields.io/badge/status-local%20proof-745c00)](docs/index.md)
+[![Status: Local MVP](https://img.shields.io/badge/status-local%20MVP-745c00)](docs/index.md)
 
-VibeSec is a planned security-testing tool for AI-built apps. It will run bounded checks against isolated copies of an app and show which failures it can reproduce, with the requests and responses needed to repeat each check.
+VibeSec is a security-promise experiment for AI-built apps. A reviewer starts with a short product brief, reviews a bounded security rule, and sees whether actual HTTP responses satisfy it. The current MVP tests only an owned synthetic notes app.
 
-The first demo uses an owned synthetic notes API and a repaired version. A local proof now compares one fixed authorization check across both profiles. The full app, live provider run, detection benchmark, and hosted demo do not exist yet.
+The MVP includes a browser interface, two synthetic briefs, reviewed positive and negative checks, a vulnerable/repaired comparison, exact-canary evidence, JSON download, and a fixture-specific regression test. It runs locally. Optional live NVIDIA planning through Nebius is implemented but has not been called or verified with this account. Nebius Sandbox execution, a hosted judge build, and a detection benchmark do not exist yet.
 
 ## Work in this repository
 
-The product scope, system design, interface direction, test plan, and demo outline are drafted. The local fixture and deterministic cross-user check are implemented. The next implementation task is to prove branch independence, app restart, network controls, and one valid model call against the synthetic fixture.
+The product scope, system design, interface direction, test plan, and demo outline are drafts. The local MVP is executable. The next engineering task is to verify a real NVIDIA model call and Nebius Sandbox branch independence, app restart, network controls, and receipts using the synthetic fixture.
 
-Run the local proof with Python 3.12 or newer, using only the standard library:
+## Run the browser MVP
+
+Use Python 3.12 or newer. No package installation or credits are needed for the local walkthrough.
+
+```bash
+python -m vibesec.web --port 8000
+```
+
+Open `http://127.0.0.1:8000`. Choose **Private notes**, leave **Local walkthrough** selected, generate the plan, review the promise, and run the comparison. The report shows Bob receiving Alice's exact note before the repair and a 403 denial afterward. Alice's legitimate read must continue to work. The **Sign-in required** brief selects a different reviewed check and demonstrates a case where no violation is observed.
+
+Download the evidence JSON or the fixture-specific regression script from the report. To run the script, start the repaired fixture in another terminal:
+
+```bash
+python fixture/notes_api.py --profile repaired --port 8080
+python regression_test.py http://127.0.0.1:8080
+```
+
+The script should pass against `repaired` and fail against `vulnerable`. The app and fixture bind to loopback only. The local result is always labeled as local execution; it is not a Sandbox receipt or a security guarantee for another app.
+
+To enable the **Live NVIDIA model via Nebius** plan source, set `NEBIUS_API_KEY` in your local environment, run `python -m vibesec.models` to see NVIDIA models available to your account, then set `NEBIUS_MODEL` to the exact model ID and restart the web server. Do not put keys in the repository or chat. The model proposes only a reviewed promise and its fixed checks; the server validates the plan before execution. This mode uses a real inference request when configured, while execution still runs locally until the Sandbox integration is verified.
+
+Run tests with:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+The original command-line proof is still available:
 
 ```bash
 python -m vibesec.local_proof
-python -m unittest discover -s tests -v
 ```
 
 The proof starts both fixture profiles on loopback, makes the same request as synthetic user Bob for Alice's note, and reports an exact canary match only when the response contains it. Its output is labeled `local_fixture_proof`; it is not a Nebius Sandbox or model run. The standalone fixture can also be started with `python fixture/notes_api.py --profile vulnerable --port 8080`; use `repaired` for the negative control. Never expose the intentionally vulnerable profile outside loopback.
 
-The planned integration uses NVIDIA Nemotron through Nebius inference and Token Factory Sandboxes for execution. Exact model and dependency versions will be recorded after live verification. Model output selects supported check IDs; reviewed code controls execution and verifies findings.
+The planned remote integration uses NVIDIA Nemotron through Nebius inference and Token Factory Sandboxes for execution. Exact model and dependency versions will be recorded after live verification. Model output selects a reviewed promise and its supported checks; reviewed code controls execution and verifies findings.
 
 ## Start developing
 
@@ -61,7 +87,7 @@ python scripts/fmd.py check
 python scripts/fmd.py record --action "Describe completed work"
 ```
 
-After the tooling check passes, enable the optional local pre-commit check with `git config --local core.hooksPath .githooks`. It uses the same tooling clone and requires Python. If tooling access is pending, teammates can read the product specs and begin implementation; document validation requires separate tooling access. Application CI and install/run instructions will be added with the first executable slice.
+After the tooling check passes, enable the optional local pre-commit check with `git config --local core.hooksPath .githooks`. It uses the same tooling clone and requires Python. If tooling access is pending, teammates can still run the local MVP; document validation requires separate tooling access. Application CI remains pending.
 
 ## Documentation
 
@@ -83,4 +109,4 @@ After the tooling check passes, enable the optional local pre-commit check with 
 
 A demo URL and video are not available yet. The planned recording shows a synthetic cross-user read, its evidence, and a repaired comparison. An empty or incomplete result will not be presented as proof of security.
 
-A product license has not been selected. Review release contents, component licenses, and rights before public submission.
+The repository carries an MIT license. Review release contents, component licenses, and rights before public submission.

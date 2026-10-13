@@ -9,7 +9,7 @@
 **PRD:** [prd-vibesec.md](prd-vibesec.md)
 **RFC:** [sandbox execution](rfc-vibesec-sandbox-execution.md)
 
-**Execution status:** A local synthetic notes fixture and deterministic cross-user comparison pass standard-library tests. The broader scenarios below remain planned: no branch-isolation runtime spike, provider call, model evaluation, or deployment drill has run. Passing local fixture or documentation checks does not satisfy the full plan.
+**Execution status:** The loopback MVP passes standard-library contract, HTTP, comparison, and exported-test checks. A mocked Nebius response exercises plan validation, but no authenticated model call, branch-isolation runtime spike, provider execution, model evaluation corpus, or deployment drill has run. Passing local checks does not satisfy the full plan.
 
 ## 1. Testing Strategy & Scope
 
@@ -32,6 +32,9 @@ The fixture seed and revision must be part of each receipt. Test reset destroys 
 | H-03 | Two branches from one baseline; write canary only in branch A | Branch B and baseline unchanged; app startup explicit | PRD-F3 / US-03 |
 | H-04 | Seeded vulnerable cross-user read returns exact synthetic canary | Confirmed finding includes deterministic assertion and receipt | PRD-F4 / US-04 |
 | H-05 | Same plan against repaired fixture returns authorization denial | Matched comparison says not reproduced for this check | PRD-F5 / US-05 |
+| H-05a | Owner reads the exact note in both profiles while the repaired profile denies Bob | The repair preserves allowed behavior and blocks forbidden behavior | PRD-F5 / US-05 |
+| H-05b | Export the approved synthetic promise as a regression script | The script passes against repaired and fails against vulnerable fixture | PRD-F8 / US-06 |
+| H-05c | Model proposes a promise unrelated to the registered brief | Plan is rejected before execution; no incorrect promise is presented as a valid result | PRD-F2 / US-02 |
 | H-06 | Export sanitized report | Export matches visible authorized projection; no secrets | PRD-F4 |
 | S-01 | Model timeout, refusal, malformed JSON, or unknown probe | Bounded error; no invalid plan executes | PRD-F2 |
 | S-02 | 429, create timeout, lost response, ambiguous operation state | Bounded reconciliation; no blind duplicate paid execution | PRD-F3 |

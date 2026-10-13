@@ -8,14 +8,14 @@
 
 | Field | Value |
 |-------|-------|
-| Current milestone | Shape; local synthetic fixture and one deterministic comparison implemented |
+| Current milestone | Shape; loopback browser MVP and synthetic promise comparison implemented |
 | Entered on | 2026-10-13 |
 | Exit condition | Remote sandbox and inference behavior proven with receipts; implementation decisions reconciled. |
 | Next milestone | Verify, after the owned-fixture runtime proof |
-| Current blocker | Real remote execution needs account access and runtime proof; Release also needs a host, named operator, tested controls, and distribution/license decisions. |
+| Current blocker | Real remote execution needs account access and runtime proof; Release also needs a host, named operator, tested controls, and distribution review. The repository carries an MIT license. |
 | Owner of the next step | Project owner and implementer |
 
-**What we are building:** A bounded security demo that tests an owned synthetic app in independent sandbox branches, verifies evidence, and repeats checks against a repaired fixture.
+**What we are building:** A bounded security demo that maps a registered synthetic feature brief to a reviewed promise, tests an owned app, verifies evidence, repeats checks against a repaired fixture, and exports a fixture-specific regression check. Remote Sandbox branches remain planned.
 
 **Engagement:** Internal hackathon product. **Vault:** None configured.
 
@@ -23,11 +23,11 @@
 
 S1 UI, S2 security/integrations/store, S3 execution trade-off, S4 non-trivial behavior, S5 agent implementation, S7 intended judge release, S11 shared/judged repo, S12 AI component, S20 provider integrations, S22 demo audience, S27 time box, and S29 computer-testing/data/licensing obligations. Evidence: IDEA, PRD, the feasibility note, and official event context. Their justified artifacts exist in the generated index.
 
-No deployed service, real customer data, revenue/pricing decision, confirmed customer demand, repeated specialist roster, incident, or working brownfield application exists. A local synthetic notes fixture and fixed comparison are executable, but remote provider and model behavior remain unproved. BRD, UES, GTM, SAD, WRAP, CR, POSTMORTEM, and empty change folders are not justified now. Customer VALIDATION is deferred to an external pilot; the present work is source verification and a technical-demo plan.
+No deployed service, real customer data, revenue/pricing decision, confirmed customer demand, repeated specialist roster, incident, or working brownfield application exists. A loopback browser MVP and synthetic notes comparison are executable, but remote provider and model behavior remain unproved. BRD, UES, GTM, SAD, WRAP, CR, POSTMORTEM, and empty change folders are not justified now. Customer VALIDATION is deferred to an external pilot; the present work is source verification and a technical-demo plan.
 
 ## 3. Operating Frameworks
 
-Milestones and Quick Mode. Engineering maturity L0: local fixture tests run; no remote CI configuration or provider test evidence exists. The FMD clone is unavailable in this fresh checkout, so documentation validation is pending. No persistent subagents. Research delegations produced source notes.
+Milestones and Quick Mode. Engineering maturity L0: local HTTP, contract, comparison, and export tests run; no remote CI configuration or provider test evidence exists. The FMD clone is unavailable in this fresh checkout, so documentation validation is pending. No persistent subagents. Research delegations produced source notes.
 
 ## 4. Open Assumptions
 
@@ -60,7 +60,7 @@ The original research report remains in the repo as historical hypothesis input.
 2. Reconcile the execution decision, model ID, stack lock, and acceptance criteria with that evidence.
 3. Build PRD-F1 through PRD-F5, execute QAD, then prepare a judge deployment and recording with real readiness evidence.
 
-**Completed setup:** Thin platform pointers to a separately located FMD clone; twelve core product artifacts plus source-research notes; project BRAND/DESIGN references; portable Python launcher, PowerShell helper, and optional pre-commit check; generated index and append-only log. README covers repository access, task branches, the available engine revision, and the first implementation slice. The duplicated engine payload and its dependent workflow were removed. A local synthetic API and deterministic before/after check now run; this is not remote proof. No paid API call, release, remote CI success, or successful provider test is claimed.
+**Completed setup:** Thin platform pointers to a separately located FMD clone; twelve core product artifacts plus source-research notes; project BRAND/DESIGN references; portable Python launcher, PowerShell helper, and optional pre-commit check; generated index and append-only log. README covers repository access and the local browser MVP. The duplicated engine payload and its dependent workflow were removed. A loopback UI, synthetic API, bounded local plan, deterministic before/after check, and fixture-specific test export now run; this is not remote proof. No paid API call, release, remote CI success, or successful provider test is claimed.
 
 ## 8. Self-Check
 

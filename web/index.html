@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VibeSec — Security promise desk</title>
+  <link rel="stylesheet" href="/app.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="wordmark">VibeSec <span class="wordmark-dot">●</span></div>
+      <div class="topbar-note">OWNED SYNTHETIC FIXTURE <span class="topbar-divider">/</span> LOCAL MVP</div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <div class="hero">
+      <div class="eyebrow"><span class="eyebrow-rule"></span> SECURITY PROMISE DESK</div>
+      <h1>Did the app keep<br><em>its promise?</em></h1>
+      <p class="hero-copy">Turn a feature request into a check you can inspect. See who could read a private note, then run the same check after the repair.</p>
+      <div class="hero-meta"><span>01 &nbsp;Define</span><span>02 &nbsp;Review</span><span>03 &nbsp;Prove</span></div>
+    </div>
+
+    <div class="workflow">
+      <section class="panel" aria-labelledby="brief-heading">
+        <div class="section-head"><span class="step">01</span><span class="section-kicker">THE INTENT</span></div>
+        <h2 id="brief-heading">What should the app do?</h2>
+        <p class="hint">Choose a reviewed synthetic feature brief. This demo never accepts a public URL or private app data.</p>
+        <label for="brief-select">Feature brief</label>
+        <select id="brief-select"></select>
+        <div class="brief-quote" id="brief-text"></div>
+        <label for="planner-mode">Plan source</label>
+        <select id="planner-mode">
+          <option value="local">Local walkthrough · no credits</option>
+          <option value="nebius">Live NVIDIA model via Nebius</option>
+        </select>
+        <p class="field-help" id="planner-help">Local mode uses a fixed reviewed plan and is clearly labeled in the report.</p>
+        <button class="button primary" id="plan-button" type="button">Generate security plan <span aria-hidden="true">→</span></button>
+      </section>
+
+      <section class="panel" aria-labelledby="plan-heading">
+        <div class="section-head"><span class="step">02</span><span class="section-kicker">THE RULE</span></div>
+        <h2 id="plan-heading">Review the promise</h2>
+        <p class="hint">A plan proposes reviewed checks. It cannot decide the result or execute its own code.</p>
+        <div id="plan-empty" class="empty-state"><span class="empty-icon">◇</span><p>Generate a plan to see the security promise and its two checks.</p></div>
+        <div id="plan-content" hidden>
+          <div class="promise-card">
+            <div class="micro-label">SECURITY PROMISE</div>
+            <h3 id="promise-title"></h3>
+            <div class="boundary-row"><span class="boundary-icon allowed">✓</span><div><strong>Allowed</strong><p id="promise-allowed"></p></div></div>
+            <div class="boundary-row"><span class="boundary-icon denied">×</span><div><strong>Forbidden</strong><p id="promise-forbidden"></p></div></div>
+          </div>
+          <div class="plan-detail"><div class="micro-label">WHY THIS RULE</div><p id="plan-rationale"></p></div>
+          <div class="plan-source" id="plan-source"></div>
+          <button class="button primary" id="run-button" type="button">Run both app versions <span aria-hidden="true">→</span></button>
+        </div>
+      </section>
+    </div>
+
+    <section class="result-section" id="result-section" aria-labelledby="result-heading" hidden>
+      <div class="result-topline"><span class="step">03</span><span class="section-kicker">THE PROOF</span></div>
+      <div class="result-heading-row"><div><h2 id="result-heading">Observed behavior</h2><p class="hint">The verdict comes from HTTP responses and exact synthetic data, never model prose.</p></div><div id="outcome-badge" class="outcome-badge"></div></div>
+      <div class="result-summary" id="result-summary"></div>
+      <div class="comparison" id="comparison"></div>
+      <div class="report-footer">
+        <div><strong id="report-mode"></strong><p id="report-limitation"></p></div>
+        <div class="downloads"><a id="json-link" class="button secondary" href="#">Download evidence JSON</a><a id="test-link" class="button secondary" href="#">Download regression test</a></div>
+      </div>
+    </section>
+
+    <p class="live-status" id="live-status" role="status" aria-live="polite"></p>
+  </main>
+
+  <footer class="site-footer"><div class="shell footer-inner"><span>VibeSec · synthetic security experiment</span><span>One promise. Two identities. Evidence you can repeat.</span></div></footer>
+</body>
+</html>

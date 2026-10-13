@@ -9,17 +9,17 @@
 **IDEA:** [idea-vibesec.md](idea-vibesec.md)
 **Requirements:** [product requirements](prd-vibesec.md)
 
-This is a proposed recording plan. The application, runtime footage, findings, and performance measurements do not exist yet. Replace each planned scene with real footage before presenting it as completed work.
+This is a proposed recording plan. A local browser MVP now exists, but remote runtime footage, authenticated model findings, and performance measurements do not. Replace each planned scene with real footage before presenting it as completed work.
 
 ## 1. Narrative Spine
 
-Hook: The app works. Can one account read another account's private note?
+Hook: The builder asked for private notes. Did the app keep that promise?
 
 Problem: A functional test shows that a feature runs. A reviewer still needs evidence that the authorization boundary holds.
 
-Solution: VibeSec tests an owned synthetic app in isolated copies and reports reproducible observations.
+Solution: Nemotron proposes a reviewed access rule from a synthetic feature brief. VibeSec tests an owned app in isolated copies and reports reproducible observations.
 
-Proof: Show the exact synthetic record crossing the boundary, then the same check against the repaired version.
+Proof: Show the exact synthetic record crossing the boundary, the same check against the repaired version, and a downloadable regression check.
 
 Close: This demonstrates a bounded security workflow. It does not claim to find every vulnerability or prove an app secure.
 
@@ -27,13 +27,13 @@ Close: This demonstrates a bounded security workflow. It does not claim to find 
 
 | Scene | On screen | Spoken point | Seconds |
 |-------|-----------|--------------|---------|
-| 1 | Two synthetic accounts and a private note | A normal feature can work while its access rule fails. | 15 |
+| 1 | Original "private notes" brief and two synthetic accounts | A normal feature can work while its stated access rule fails. | 15 |
 | 2 | Fixture revision and declared test scope | This demo uses our own fixture and fake data. | 20 |
-| 3 | Live plan receipt and model identifier | NVIDIA Nemotron through Nebius chooses from a bounded test catalog. | 25 |
+| 3 | Reviewed promise and live plan receipt | NVIDIA Nemotron through Nebius maps the brief to a reviewed rule and its bounded checks. | 25 |
 | 4 | Actual remote attempts and recorded branch IDs | The checks run in separate Token Factory Sandbox branches. | 35 |
 | 5 | Confirmed observation and redacted request/response | Show what crossed the boundary and how to repeat the check. | 30 |
 | 6 | Repaired comparison | The same check now returns the expected denial. | 25 |
-| 7 | Scope and limitations | This is evidence for the checks shown, not a security guarantee. | 15 |
+| 7 | Downloadable regression check, scope, and limits | Keep the promise as a test; this is not a security guarantee. | 15 |
 
 **Total time:** 165 seconds, leaving margin below three minutes. Wait time may be edited; label any cuts and show measured timings rather than implying instantaneous execution.
 
@@ -54,7 +54,7 @@ The [official rules](https://nebiusglobalaihackathon.devpost.com/rules) govern; 
 
 ## 5. Pre-Demo Readiness
 
-**Gate status:** Not ready; no application or evaluated integration exists. Runtime proof, interface audit, budget/cancellation controls, release owner, hosting, product license, judge instructions, and actual recording remain open.
+**Gate status:** Not ready; a loopback MVP exists, but no evaluated provider integration does. Runtime proof, interface audit, budget/cancellation controls, release owner, hosting, product license, judge instructions, and actual recording remain open.
 
 ## 6. Anticipated Questions
 
@@ -62,6 +62,6 @@ The [official rules](https://nebiusglobalaihackathon.devpost.com/rules) govern; 
 |----------|---------------|
 | Does this prove the app is secure? | It proves only the observations from the checks and fixture revisions shown. |
 | Does it restore a running app's memory? | The planned demo restarts from filesystem state; live-memory restoration is not claimed. |
-| Does the AI execute whatever it generates? | It selects supported check IDs; reviewed code controls execution and verifies observations. |
+| Does the AI execute whatever it generates? | It proposes a reviewed promise and exact supported checks; reviewed code controls execution and verifies observations. |
 | Can I test a production URL? | This first demo accepts only our registered synthetic fixtures. |
 | How much does a run cost? | Publish the measured provider usage and pricing after the integration benchmark; no estimate is claimed yet. |
