@@ -1,0 +1,23 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+auth.ini
+*.key
+*.pem
+
+# Python and application runtime artifacts
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.db
+*.db-shm
+*.db-wal
+runtime/
+.tmp/
+
+# Generated local status view
+cockpit.html
