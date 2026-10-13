@@ -3,76 +3,53 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VibeSec — Security promise desk</title>
+  <meta name="theme-color" content="#111719">
+  <meta name="description" content="VibeSec turns a product promise into an inspectable security check on a synthetic app.">
+  <title>VibeSec — Make the promise provable</title>
   <link rel="stylesheet" href="/app.css">
   <script src="/app.js" defer></script>
 </head>
-<body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="wordmark">VibeSec <span class="wordmark-dot">●</span></div>
-      <div class="topbar-note">OWNED SYNTHETIC FIXTURE <span class="topbar-divider">/</span> LOCAL MVP</div>
-    </div>
-  </header>
-
-  <main class="shell">
-    <div class="hero">
-      <div class="eyebrow"><span class="eyebrow-rule"></span> SECURITY PROMISE DESK</div>
-      <h1>Did the app keep<br><em>its promise?</em></h1>
-      <p class="hero-copy">Turn a feature request into a check you can inspect. See who could read a private note, then run the same check after the repair.</p>
-      <div class="hero-meta"><span>01 &nbsp;Define</span><span>02 &nbsp;Review</span><span>03 &nbsp;Prove</span></div>
-    </div>
-
-    <div class="workflow">
-      <section class="panel" aria-labelledby="brief-heading">
-        <div class="section-head"><span class="step">01</span><span class="section-kicker">THE INTENT</span></div>
-        <h2 id="brief-heading">What should the app do?</h2>
-        <p class="hint">Choose a reviewed synthetic feature brief. This demo never accepts a public URL or private app data.</p>
-        <label for="brief-select">Feature brief</label>
-        <select id="brief-select"></select>
-        <div class="brief-quote" id="brief-text"></div>
-        <label for="planner-mode">Plan source</label>
-        <select id="planner-mode">
-          <option value="local">Local walkthrough · no credits</option>
-          <option value="nebius">Live NVIDIA model via Nebius</option>
-        </select>
-        <p class="field-help" id="planner-help">Local mode uses a fixed reviewed plan and is clearly labeled in the report.</p>
-        <button class="button primary" id="plan-button" type="button">Generate security plan <span aria-hidden="true">→</span></button>
-      </section>
-
-      <section class="panel" aria-labelledby="plan-heading">
-        <div class="section-head"><span class="step">02</span><span class="section-kicker">THE RULE</span></div>
-        <h2 id="plan-heading">Review the promise</h2>
-        <p class="hint">A plan proposes reviewed checks. It cannot decide the result or execute its own code.</p>
-        <div id="plan-empty" class="empty-state"><span class="empty-icon">◇</span><p>Generate a plan to see the security promise and its two checks.</p></div>
-        <div id="plan-content" hidden>
-          <div class="promise-card">
-            <div class="micro-label">SECURITY PROMISE</div>
-            <h3 id="promise-title"></h3>
-            <div class="boundary-row"><span class="boundary-icon allowed">✓</span><div><strong>Allowed</strong><p id="promise-allowed"></p></div></div>
-            <div class="boundary-row"><span class="boundary-icon denied">×</span><div><strong>Forbidden</strong><p id="promise-forbidden"></p></div></div>
-          </div>
-          <div class="plan-detail"><div class="micro-label">WHY THIS RULE</div><p id="plan-rationale"></p></div>
-          <div class="plan-source" id="plan-source"></div>
-          <button class="button primary" id="run-button" type="button">Run both app versions <span aria-hidden="true">→</span></button>
-        </div>
-      </section>
-    </div>
-
-    <section class="result-section" id="result-section" aria-labelledby="result-heading" hidden>
-      <div class="result-topline"><span class="step">03</span><span class="section-kicker">THE PROOF</span></div>
-      <div class="result-heading-row"><div><h2 id="result-heading">Observed behavior</h2><p class="hint">The verdict comes from HTTP responses and exact synthetic data, never model prose.</p></div><div id="outcome-badge" class="outcome-badge"></div></div>
-      <div class="result-summary" id="result-summary"></div>
-      <div class="comparison" id="comparison"></div>
-      <div class="report-footer">
-        <div><strong id="report-mode"></strong><p id="report-limitation"></p></div>
-        <div class="downloads"><a id="json-link" class="button secondary" href="#">Download evidence JSON</a><a id="test-link" class="button secondary" href="#">Download regression test</a></div>
+<body data-stage="intent">
+  <header class="topbar"><div class="topbar-inner shell">
+    <a class="wordmark" href="#top" aria-label="VibeSec home"><span class="brand-glyph" aria-hidden="true"><i></i><i></i><i></i></span><span>vibe<span class="brand-accent">sec</span><span class="wordmark-period">.</span></span></a>
+    <div class="topbar-right"><span class="nav-edition">SECURITY PROMISE LAB <span class="nav-slash">/</span> 001</span><a class="nav-cta" href="#workspace">Open the workbench <span aria-hidden="true">↗</span></a></div>
+  </div></header>
+  <main id="top">
+    <section class="hero shell" aria-labelledby="hero-heading">
+      <div class="hero-main">
+        <div class="eyebrow"><span class="eyebrow-icon" aria-hidden="true">✳</span> VIBESEC / AN EVIDENCE EXPERIMENT <span class="eyebrow-line"></span> 2026</div>
+        <h1 id="hero-heading">Make the<br><span class="highlight-word">promise</span><br>provable<span class="heading-stop">.</span></h1>
+        <div class="hero-bottom"><p>When an app says a note is private, <em>try reading it as another user.</em> VibeSec turns that promise into an inspectable security check.</p><a href="#workspace" class="hero-link">Explore the proof <span class="arrow-circle" aria-hidden="true">↘</span></a></div>
       </div>
+      <aside class="hero-visual" aria-label="Illustration of the sample security boundary">
+        <div class="visual-top"><span>THE TEST CASE</span><span>OWNED SYNTHETIC APP <span class="visual-cross">✳</span></span></div>
+        <div class="orbit-wrap" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit-core"><span>PRIVATE<br>NOTE</span><b>01</b></div><span class="orbit-node orbit-node-left">A</span><span class="orbit-node orbit-node-right">B</span><div class="orbit-caption left"><b>ALICE</b><span>OWNER</span></div><div class="orbit-caption right"><b>BOB</b><span>OTHER USER</span></div></div>
+        <div class="visual-bottom"><span>THE PROMISE</span><strong>Only Alice can read Alice’s note.</strong><span class="visual-footnote">The actual responses appear in the workbench below.</span></div>
+      </aside>
     </section>
-
-    <p class="live-status" id="live-status" role="status" aria-live="polite"></p>
+    <div class="ticker-wrap"><div class="ticker shell"><span class="ticker-spark">✳</span><span>ONE PROMISE</span><span class="ticker-divider"></span><span>TWO IDENTITIES</span><span class="ticker-divider"></span><span>THE ACTUAL RESPONSE</span><span class="ticker-end">NO BLACK BOX VERDICT <span aria-hidden="true">↗</span></span></div></div>
+    <section class="workspace shell" id="workspace" aria-labelledby="workspace-heading">
+      <div class="workspace-intro"><div><div class="overline"><span class="overline-dash"></span> THE WORKBENCH / 01—03</div><h2 id="workspace-heading">From intent to evidence.</h2></div><p>A small, inspectable experiment on our own sample notes app. Pick a brief, review the rule, then compare real HTTP responses before and after repair.</p></div>
+      <div class="step-track" aria-label="Workbench steps"><div class="track-step" data-step="intent"><span class="track-number">01</span><span>Define intent</span></div><div class="track-line"></div><div class="track-step" data-step="rule"><span class="track-number">02</span><span>Review rule</span></div><div class="track-line"></div><div class="track-step" data-step="proof"><span class="track-number">03</span><span>Inspect proof</span></div></div>
+      <p class="live-status" id="live-status" role="status" aria-live="polite"></p>
+      <div class="workflow">
+        <section class="panel panel-intent" aria-labelledby="brief-heading"><div class="panel-head"><span>01 <span class="panel-slash">/</span> INPUT</span><span class="panel-mark" aria-hidden="true">↗</span></div><div class="panel-body">
+          <div class="section-kicker">START WITH THE PRODUCT CLAIM</div><h3 id="brief-heading">What should<br>the app do?</h3><p class="hint">Choose a reviewed sample brief. This demo only uses synthetic data and an app we own.</p>
+          <label for="brief-select">Feature brief <span class="label-index">A.</span></label><select id="brief-select"></select>
+          <div class="brief-quote"><span class="quote-mark" aria-hidden="true">“</span><span id="brief-text"></span></div>
+          <label for="planner-mode">Plan source <span class="label-index">B.</span></label><select id="planner-mode"><option value="local">Local walkthrough · no credits</option><option value="nebius">Live NVIDIA model via Nebius</option></select>
+          <p class="field-help" id="planner-help">Local mode uses a fixed reviewed plan and is clearly labeled in the report.</p>
+          <button class="button primary" id="plan-button" type="button"><span>Generate security plan</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+        </div></section>
+        <section class="panel panel-rule" aria-labelledby="plan-heading"><div class="panel-head"><span>02 <span class="panel-slash">/</span> REVIEW</span><span class="panel-mark" aria-hidden="true">✳</span></div><div class="panel-body">
+          <div class="section-kicker">THE HUMAN CHECKPOINT</div><h3 id="plan-heading">Review the<br>promise.</h3><p class="hint">The plan proposes reviewed checks. It cannot choose the result or run its own code.</p>
+          <div id="plan-empty" class="empty-state"><div class="empty-symbol" aria-hidden="true"><span class="empty-ring"></span><span class="empty-asterisk">✳</span></div><p>Your reviewed promise will appear here.</p><span>GENERATE A PLAN TO CONTINUE ↖</span></div>
+          <div id="plan-content" hidden><div class="promise-card"><div class="micro-label">THE SECURITY PROMISE <span aria-hidden="true">✳</span></div><h4 id="promise-title"></h4><div class="boundary-row"><span class="boundary-icon allowed" aria-hidden="true">✓</span><div><strong>Allowed</strong><p id="promise-allowed"></p></div></div><div class="boundary-row"><span class="boundary-icon denied" aria-hidden="true">×</span><div><strong>Forbidden</strong><p id="promise-forbidden"></p></div></div></div><div class="plan-detail"><div class="micro-label">WHY THIS RULE</div><p id="plan-rationale"></p></div><div class="plan-source" id="plan-source"></div><button class="button primary" id="run-button" type="button"><span>Run both app versions</span><span class="button-arrow" aria-hidden="true">↗</span></button></div>
+        </div></section>
+      </div>
+      <section class="result-section" id="result-section" aria-labelledby="result-heading" hidden><div class="result-topline"><span>03 <span class="panel-slash">/</span> EVIDENCE</span><span>HTTP RESPONSE COMPARISON</span></div><div class="result-heading-row"><div><div class="section-kicker">THE PART THAT MATTERS</div><h3 id="result-heading">What actually happened.</h3><p class="hint">The verdict comes from HTTP responses and exact synthetic data, never model prose.</p></div><div id="outcome-badge" class="outcome-badge"></div></div><div class="result-summary" id="result-summary"></div><div class="comparison" id="comparison"></div><div class="report-footer"><div><strong id="report-mode"></strong><p id="report-limitation"></p></div><div class="downloads"><a id="json-link" class="button secondary" href="#">Evidence JSON <span aria-hidden="true">↗</span></a><a id="test-link" class="button secondary" href="#">Regression test <span aria-hidden="true">↗</span></a></div></div></section>
+    </section>
   </main>
-
-  <footer class="site-footer"><div class="shell footer-inner"><span>VibeSec · synthetic security experiment</span><span>One promise. Two identities. Evidence you can repeat.</span></div></footer>
+  <footer class="site-footer"><div class="shell footer-inner"><span class="footer-wordmark">vibesec<span>.</span></span><span>Synthetic security experiment<br>Local MVP · limited to the sample notes app</span><span>SHOW THE REQUEST.<br>SHOW THE RECORD.<br>RUN IT AGAIN.</span></div></footer>
 </body>
 </html>

@@ -15,7 +15,7 @@
 | IDEA · Idea Brief | [idea-vibesec.md](idea-vibesec.md) | 0.1 | Draft | 2026-09-30 | 2026-09-30 |
 | SCRUTINY · Scrutiny Gate | [scrutiny-vibesec.md](scrutiny-vibesec.md) | 0.1 | Draft | 2026-09-30 | 2026-09-30 |
 | PRD · Product Requirements | [prd-vibesec.md](prd-vibesec.md) | 0.1 | Draft | 2026-09-30 | 2026-09-30 |
-| DSD · Design System | [dsd-vibesec.md](dsd-vibesec.md) | 0.1 | Draft | 2026-09-30 | 2026-09-30 |
+| DSD · Design System | [dsd-vibesec.md](dsd-vibesec.md) | 0.2 | Draft | 2026-09-30 | 2026-10-13 |
 | SDD · System Design | [sdd-vibesec.md](sdd-vibesec.md) | 0.1 | Draft | 2026-09-30 | 2026-10-01 |
 | RFC · Decision Record | [rfc-vibesec-sandbox-execution.md](rfc-vibesec-sandbox-execution.md) | 0.1 | Draft | 2026-09-30 | 2026-09-30 |
 | QAD · QA & Test Plan | [qad-vibesec.md](qad-vibesec.md) | 0.1 | Draft | 2026-09-30 | 2026-10-01 |

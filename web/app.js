@@ -22,11 +22,12 @@ function selectedBrief() {
 }
 
 function updateBrief() {
-  byId("brief-text").textContent = `“${selectedBrief().text}”`;
+  byId("brief-text").textContent = selectedBrief().text;
   byId("plan-content").hidden = true;
   byId("plan-empty").hidden = false;
   byId("result-section").hidden = true;
   state.planId = null;
+  document.body.dataset.stage = "intent";
   setStatus("");
 }
 
@@ -49,6 +50,7 @@ function renderPlan(data) {
   byId("plan-empty").hidden = true;
   byId("plan-content").hidden = false;
   byId("result-section").hidden = true;
+  document.body.dataset.stage = "rule";
 }
 
 function outcomeText(outcome) {
@@ -87,7 +89,7 @@ function renderReport(report) {
   for (const profile of report.profiles) {
     const card = element("div", "profile-card");
     const head = element("div", "profile-head");
-    head.append(element("h3", "", profile.profile === "vulnerable" ? "Before repair" : "After repair"));
+    head.append(element("h4", "", profile.profile === "vulnerable" ? "Before repair" : "After repair"));
     head.append(element("span", "", profile.profile.toUpperCase()));
     card.append(head, ...profile.checks.map(renderCheck));
     comparison.append(card);
@@ -99,7 +101,9 @@ function renderReport(report) {
   byId("json-link").href = `/api/runs/${report.run_id}/report.json`;
   byId("test-link").href = `/api/runs/${report.run_id}/regression.py`;
   byId("result-section").hidden = false;
-  byId("result-section").scrollIntoView({ behavior: "smooth", block: "start" });
+  document.body.dataset.stage = "proof";
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  byId("result-section").scrollIntoView({ behavior: reduceMotion ? "instant" : "smooth", block: "start" });
 }
 
 async function generatePlan() {
