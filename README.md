@@ -1,20 +1,29 @@
 # VibeSec
 
-[![Status: Planning](https://img.shields.io/badge/status-planning-745c00)](docs/index.md)
+[![Status: Local proof](https://img.shields.io/badge/status-local%20proof-745c00)](docs/index.md)
 
 VibeSec is a planned security-testing tool for AI-built apps. It will run bounded checks against isolated copies of an app and show which failures it can reproduce, with the requests and responses needed to repeat each check.
 
-The first demo uses an owned synthetic notes API and a repaired version. It will compare the same checks before and after the repair. No working application, live provider run, detection benchmark, or hosted demo exists yet.
+The first demo uses an owned synthetic notes API and a repaired version. A local proof now compares one fixed authorization check across both profiles. The full app, live provider run, detection benchmark, and hosted demo do not exist yet.
 
 ## Work in this repository
 
-The product scope, system design, interface direction, test plan, and demo outline are drafted. The immediate implementation task is to prove branch independence, app restart, network controls, and one valid model call against the synthetic fixture.
+The product scope, system design, interface direction, test plan, and demo outline are drafted. The local fixture and deterministic cross-user check are implemented. The next implementation task is to prove branch independence, app restart, network controls, and one valid model call against the synthetic fixture.
+
+Run the local proof with Python 3.12 or newer, using only the standard library:
+
+```bash
+python -m vibesec.local_proof
+python -m unittest discover -s tests -v
+```
+
+The proof starts both fixture profiles on loopback, makes the same request as synthetic user Bob for Alice's note, and reports an exact canary match only when the response contains it. Its output is labeled `local_fixture_proof`; it is not a Nebius Sandbox or model run. The standalone fixture can also be started with `python fixture/notes_api.py --profile vulnerable --port 8080`; use `repaired` for the negative control. Never expose the intentionally vulnerable profile outside loopback.
 
 The planned integration uses NVIDIA Nemotron through Nebius inference and Token Factory Sandboxes for execution. Exact model and dependency versions will be recorded after live verification. Model output selects supported check IDs; reviewed code controls execution and verifies findings.
 
 ## Start developing
 
-Clone this private repository with an account that has team access:
+Clone the repository:
 
 ```bash
 git clone https://github.com/Axon-Enjin/nvidia-coding-agentic-engineering.git
@@ -22,7 +31,7 @@ cd nvidia-coding-agentic-engineering
 git switch -c feature/sandbox-proof
 ```
 
-Read [current state](docs/state.md), the [build guide](docs/build-vibesec.md), and the [sandbox feasibility note](docs/research-vibesec.md) before starting the first slice. Work on a task branch and open a pull request into `main`. Include the acceptance criteria addressed, checks run, and any changed assumptions. Application code and dependency installation will begin with the synthetic sandbox/inference proof; the repository currently contains its specifications.
+Read [current state](docs/state.md), the [build guide](docs/build-vibesec.md), and the [sandbox feasibility note](docs/research-vibesec.md) before continuing. Work on a task branch and open a pull request into `main`. Include the acceptance criteria addressed, checks run, and any changed assumptions.
 
 Keep provider credentials in your local environment. Share access through the team's account controls. Remote tests must be explicit, bounded, and use owned synthetic fixtures.
 
@@ -65,6 +74,7 @@ After the tooling check passes, enable the optional local pre-commit check with 
 | [System design](docs/sdd-vibesec.md) | Components, contracts, and security boundary |
 | [Test plan](docs/qad-vibesec.md) | Functional, failure, abuse, and model checks |
 | [Sandbox feasibility](docs/research-vibesec.md) | Documented capabilities and runtime proof still needed |
+| [Competitive landscape](docs/competitive-landscape-vibesec.md) | Current alternatives, limitations, and proposed edge |
 | [Full index](docs/index.md) | All existing project documents |
 
 [Brand](BRAND.md) and [design](DESIGN.md) describe the proposed interface. [Hackathon rules](HACKATHON.md), [sponsor context](ORG.md), [original research prompt](PROMPT.md), and [original report](Nebius-Hackathon-Research-Strategy.md) remain available as source context. Claims in the original report are not automatically accepted as product evidence.

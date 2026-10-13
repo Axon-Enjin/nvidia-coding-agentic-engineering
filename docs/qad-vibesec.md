@@ -9,7 +9,7 @@
 **PRD:** [prd-vibesec.md](prd-vibesec.md)
 **RFC:** [sandbox execution](rfc-vibesec-sandbox-execution.md)
 
-**Execution status:** Planned only. No application test, runtime spike, provider call, model evaluation, or deployment drill has run. Passing documentation checks does not satisfy this plan.
+**Execution status:** A local synthetic notes fixture and deterministic cross-user comparison pass standard-library tests. The broader scenarios below remain planned: no branch-isolation runtime spike, provider call, model evaluation, or deployment drill has run. Passing local fixture or documentation checks does not satisfy the full plan.
 
 ## 1. Testing Strategy & Scope
 
