@@ -95,6 +95,7 @@ def make_handler(state: AppState):
                 "/": ("index.html", "text/html; charset=utf-8"),
                 "/app.css": ("app.css", "text/css; charset=utf-8"),
                 "/app.js": ("app.js", "text/javascript; charset=utf-8"),
+                "/access-study.svg": ("access-study.svg", "image/svg+xml"),
             }
             if path not in assets:
                 return self.respond(404, {"error": "not_found"})

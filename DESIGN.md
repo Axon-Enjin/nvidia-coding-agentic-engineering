@@ -8,38 +8,38 @@
 
 ### 2.0 Token Architecture
 
-Primitive tokens hold color/spacing values; semantic tokens convey role; component tokens reference semantic tokens. The local interface uses warm light surfaces, a dark hero illustration and footer, and a lime accent. Evidence states retain text labels.
+Primitive tokens hold color/spacing values; semantic tokens convey role; component tokens reference semantic tokens. The local interface uses warm light surfaces, fine rules, and a restrained evergreen accent. Evidence states retain text labels.
 
 ### 2.1 Colors
 
 | Token | Value |
 |-------|-------|
-| `--bg` | `#F4F4F0` |
-| `--paper` | `#FDFDF9` |
-| `--line` | `#C8CDCA` |
-| `--ink` | `#111719` |
-| `--lime` | `#CEFB73` |
-| `--muted` | `#56605F` |
-| `--green` | `#246548` |
-| `--amber` | `#76551E` |
-| `--red` | `#A72F3B` |
+| `--bg` | `#F7F8F5` |
+| `--surface` | `#FFFFFF` |
+| `--line` | `#D6DED6` |
+| `--ink` | `#1C2922` |
+| `--accent` | `#285F45` |
+| `--muted` | `#59665F` |
+| `--green` | `#286347` |
+| `--amber` | `#77571F` |
+| `--red` | `#A6363F` |
 
 Semantic status colors pair with labels and icons, never color alone. Validate actual text/component contrast when implemented; the palette is not a completed accessibility audit.
 
 ### 2.2 Logo System
 
-The local MVP uses a lowercase text wordmark with a small CSS bar glyph and lime accent. It is an interface treatment, not a final approved logo. Keep rendered text at least 20px and avoid external logo dependencies. A favicon can be designed after the interface works.
+The local MVP uses a plain VibeSec text wordmark with a small slash. It is an interface treatment, not a final approved logo. Keep rendered text at least 20px and avoid external logo dependencies. A favicon can be designed after the interface works.
 
 ### 2.3 Typography
 
-System sans-serif stack for UI, system monospace stack for labels and evidence. The first-screen headline is oversized and tightly tracked; workbench headings step down sharply so results remain easy to scan. Body is 16px/1.5; request and response text wraps at 12px/1.55 in the local MVP. No downloaded fonts or third-party font requests. A copy control remains planned.
+System sans-serif stack for UI, system monospace stack for small labels and evidence. The first-screen question is prominent without crowding the diagram; workbench headings are smaller for easy scanning. Body is 16px/1.5; request and response text wraps at 12px/1.5 in the local MVP. No downloaded fonts or third-party font requests. A copy control remains planned.
 
 ### 2.4 Imagery and depth
 
-No stock photography or generated illustration. The static hero orbit depicts the sample Alice/Bob ownership question and is labeled as the test case. Any future branch diagram that depicts execution must use real receipts with a matching tabular list. Evidence panels use borders; no simulated activity is animated as if live.
+No stock photography or external imagery. The original SVG shows a single owned note and two actors; the question mark on Bob's path stays unresolved until execution. Any future branch diagram that depicts execution must use real receipts with a matching tabular list. Evidence panels use borders; no simulated activity is animated as if live.
 ## 3. Layout & Spatial System
 
-Base spacing 4px; scale 4, 8, 12, 16, 24, 32, 48px. Maximum content width 1400px. The local workbench and comparison use two columns on desktop and stack in reading order below 800px. Check widths 375, 768, 1024, and 1440px. Long evidence wraps without overflowing the viewport.
+Base spacing 4px; scale 4, 8, 12, 16, 24, 32, 48px. Maximum content width 1220px. The local workbench and comparison use two columns on desktop and stack in reading order below 760px. Check widths 375, 768, 1024, and 1440px. Long evidence wraps without overflowing the viewport.
 ## 4. Core Component Specs
 
 Buttons: 44px minimum target height; primary starts a declared fixture run, secondary exports, destructive stops work. Hover darkens the semantic fill; focus has a visible 2px outline with 2px offset. Disabled controls remain labeled with a reason, rather than opacity alone.
@@ -51,7 +51,7 @@ Run header: fixture revision, live/replay indicator, status, elapsed time, compl
 Empty state: choose the owned demo fixture and explain its synthetic data. Loading state: real stage and counts; no fake percentage. Error state: what failed, what remains unknown, and whether retry creates a new run. Completed state: report findings and explicit tested scope. Cancellation preserves completed evidence and marks remaining probes incomplete.
 ## 5. Motion
 
-The rare first-screen entrance uses an opacity/translate reveal of 650–800ms. The note and two identity markers join that entrance once to explain the boundary. Plan and report arrival use 280ms; buttons and other routine feedback use 140–200ms. The boundary illustration does not pulse or imply live execution. No simulated progress or continuous animation. Respect reduced motion, and announce status changes politely without reading raw request bodies aloud.
+The first screen is static. Plan and report arrival use a 200ms opacity transition; hover feedback uses 150ms color changes. The boundary illustration does not move or imply live execution. No simulated progress or continuous animation. Respect reduced motion, and announce status changes politely without reading raw request bodies aloud.
 ## 6. Accessibility
 
 Use landmarks, ordered headings, native controls, table headers, visible focus, and text labels. Check 4.5:1 normal text contrast and 3:1 non-text controls. All flows work with keyboard and a screen reader. Dialogs retain focus correctly; routes put focus on their heading. Timestamp labels specify timezone. Copy controls announce completion, and export remains available without JavaScript-only interaction.
