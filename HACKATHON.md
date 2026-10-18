@@ -189,7 +189,7 @@ Tokyo, Da Nang, Seoul, Kuala Lumpur, Singapore, Taipei, Tel Aviv, London, Copenh
 
 | Offer | How to get it |
 |---|---|
-| **$25 Token Factory credits** | Fill out the [promo form](https://nebius.com/promo-code?utm_promo_event_code=2026-devpost-global-ai-hack&utm_promo_code_type=Token_Factory&utm_promo_activation_code=NEBIUS-DEVPOST-GLOBAL26) with activation code **`NEBIUS-DEVPOST-GLOBAL26`** |
+| **$25 Token Factory credits** | Request the credits from the hackathon's Nebius resource pages. The activation code is omitted from this repository. |
 | **+$25 extra credits** | Join the [Nebius Builders Program](https://dev.nebius.com/builders). It includes Token Factory, Tavily and Nebius Academy access, office hours and community. |
 | Extra cloud credits | Offered at the in-person Builders & Brews events |
 | Developer hub | https://dev.nebius.com/ |
