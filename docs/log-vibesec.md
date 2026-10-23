@@ -2,7 +2,7 @@
 
 **Project:** vibesec
 **Project slug:** vibesec
-**FMD engine:** 2.0.1
+**FMD engine:** v3.0.1
 **Session started:** 2026-09-30
 
 ---
@@ -19,8 +19,10 @@
 | 6 | 2026-09-30 14:15 | Completed the self-contained FMD setup, reconciled state and source notes, adapted documentation CI and hook tooling, and materialized agent/design references. | - | - | - | 3 fail / 0 warn |
 | 7 | 2026-09-30 20:26 | Verified all core artifacts, local links, Must-Have trace, engine/license provenance, generator idempotence, Windows helper and hook execution; activated local pre-commit hook. | - | - | - | 0 fail / 0 warn |
 | 8 | 2026-09-30 20:28 | Final reconciliation of completed setup, generated references, tooling, and recorded integration fixes. | STATE_Template.md, LOG_Template.md | docs/state.md, docs/log-vibesec.md, AGENTS.md, BRAND.md, DESIGN.md, README.md, FMD.md, FMD-LICENSE, scripts/fmd.ps1, scripts/materialize.py, .github/workflows/fmd-check.yml, .githooks/pre-commit, .gitignore | - | 0 fail / 0 warn |
-| 9 | 2026-09-30 20:58 | Removed 56 duplicated engine and dependent workflow files; restored thin pointers to <local path>, retained all project documents and historical log rows, reconciled active references, and verified strict checks, local links, Windows helper, and active pre-commit hook. | - | - | - | 0 fail / 0 warn |
-| 10 | 2026-09-30 22:53 | Prepared the private repository for teammate development: added portable engine discovery and team onboarding, verified the available FMD 2.0.0 revision in a fresh folder, checked recording and failure paths, retained lean engine pointers, and passed local documentation and hook checks before publication. | - | - | - | 0 fail / 0 warn |
+| 9 | 2026-09-30 20:58 | Removed 56 duplicated engine and dependent workflow files; restored thin pointers to the engine, retained all project documents and historical log rows, reconciled active references, and verified strict checks, local links, Windows helper, and active pre-commit hook. | - | - | - | 0 fail / 0 warn |
+| 10 | 2026-09-30 22:53 | Prepared this repository for teammate development: added portable engine discovery and team onboarding, verified the available FMD 2.0.0 revision in a fresh folder, checked recording and failure paths, retained lean engine pointers, and passed local documentation and hook checks before publication. | - | - | - | 0 fail / 0 warn |
+| 11 | 2026-10-12 12:07 | Set the public documentation stamp to FMD v3.0.1 and removed private engine links, the local drive path, and internal pipeline labels from the named files. Engine upgrade instructions were not readable here, so no new document templates were invented. | - | AGENTS.md, CLAUDE.md, GEMINI.md, README.md, docs/index.md, docs/state.md, docs/build-vibesec.md, docs/log-vibesec.md, PROMPT.md, .cursor/rules/fmd.mdc, .windsurf/rules/fmd.md | - | not run |
+| 12 | 2026-10-12 13:25 | Re-ran FMD v3.0.1 init and kept the existing project documents. Replaced engine-only clone details in the generated pointer with the plain text FMD v3.0.1. Reworded onboarding, decision D5, log row 10, and the protection note. The pre-commit hook skips when FMD v3.0.1 is absent. Removed the hackathon activation code. Effort is UNCALIBRATED. | - | AGENTS.md, README.md, docs/state.md, docs/clr-vibesec.md, docs/build-vibesec.md, HACKATHON.md, .githooks/pre-commit | - | 0 fail / 0 warn |
 
 ---
 

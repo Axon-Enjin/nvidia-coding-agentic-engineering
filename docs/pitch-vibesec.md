@@ -54,7 +54,7 @@ The [official rules](https://nebiusglobalaihackathon.devpost.com/rules) govern; 
 
 ## 5. Pre-Demo Readiness
 
-**Gate status:** Not ready; a loopback MVP exists, but no evaluated provider integration does. Runtime proof, interface audit, budget/cancellation controls, release owner, hosting, product license, judge instructions, and actual recording remain open.
+**Gate status:** Not ready; a loopback MVP exists, but no evaluated provider integration does. Runtime proof, interface audit, budget/cancellation controls, release owner, hosting, judge instructions, and actual recording remain open. The product license is MIT.
 
 ## 6. Anticipated Questions
 

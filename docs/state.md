@@ -38,7 +38,7 @@ Milestones and Quick Mode. Engineering maturity L0: local HTTP, contract, compar
 | A3 | Branching, explicit restart, network denial/loopback, cancellation, and receipt reconciliation work as planned. | Runtime feasibility unproven; implementer | Before enabling remote execution |
 | A4 | Nine probes, three active attempts, five-minute deadline, and PRD token limits are suitable. | Performance/cost targets unmeasured; implementer | Integration benchmark |
 | A5 | Composite persona represents a real review need. | Customer value unverified; project owner | Before external pilot or demand claims |
-| A6 | Hosting, exact available model ID, provider pricing/data terms, real on-call contact, and product distribution/license choice remain unresolved. | These are not fabricated by the setup; project owner | Respective integration and Release gates |
+| A6 | Hosting, exact available model ID, provider pricing/data terms, and real on-call contact remain unresolved. The product license is MIT. | These are not fabricated by the setup; project owner | Respective integration and Release gates |
 
 ## 5. Decisions
 
@@ -48,7 +48,8 @@ Milestones and Quick Mode. Engineering maturity L0: local HTTP, contract, compar
 | D2 | Use the existing FMD clone through thin platform pointers and a local command helper; remove duplicated engine files and their dependent CI. Supersedes the full stamp. | Human Decision: user's cleanup request on 2026-10-01 | Clone relocation or shared tooling need |
 | D3 | Scrutiny: PROCEED WITH FIXES for the owned-fixture slice. | Agent-derived conclusion; primary-source audit linked in Scrutiny | Contradicting runtime evidence |
 | D4 | Model produces bounded plan data; code owns scope, execution limits, and confirmed findings. | Proposed design documented in PRD/SDD/RFC | Target or autonomy expansion |
-| D5 | Share the draft suite and portable development onboarding through the existing private VibeSec repository. The separate engine uses the available 2.0.0 team baseline. | Human Decision: user's repository update request; available revision verified on GitHub | Shared engine release or team workflow change |
+| D5 | Share the draft suite and portable development onboarding through this VibeSec repository. Documentation tooling is FMD v3.0.1. | Human Decision: user's repository update request; upgraded from the earlier 2.0.x baseline | Shared engine release or team workflow change |
+| D6 | Public documentation stamp is FMD v3.0.1. Engine links and local drive paths stay out of that stamp. | Human Decision: user's upgrade and privacy request | Engine tag changes |
 
 ## 6. Context Exclusions
 
