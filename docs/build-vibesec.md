@@ -5,12 +5,12 @@
 **Version:** 0.1
 **Owner:** Project owner
 **Status:** Draft
-**Last reconciled:** 2026-10-01
+**Last reconciled:** 2026-10-23
 **PRD:** `docs/prd-vibesec.md`
 **SDD:** `docs/sdd-vibesec.md`
 **SAD:** N/A; no persistent specialist roster.
 
-Project paths in this guide are relative to the project root. Engine paths are relative to the separate clone located by `python scripts/fmd.py locate`; README describes team setup.
+Project paths in this guide are relative to the project root. This is the complete product repository. The optional FMD v3.0.1 engine remains external; `python scripts/fmd.py locate` reports it only when a contributor supplies one.
 
 ## 1. How to Build From These Docs
 
@@ -20,14 +20,20 @@ Implement a PRD-F# by reading its acceptance criteria, SDD realization, relevant
 
 **Next implementation slice:** the disposable owned-fixture sandbox/inference spike in `docs/research-vibesec.md`. Its exit evidence is explicit branch independence, service restart, denied egress plus working loopback, bounded output/timeouts, receipt reconciliation, and a selected model passing the plan schema. Do not dispatch real customer targets or use production data.
 
-Commands available now:
+The repository-local documentation gate is always available:
+
+```powershell
+python scripts/check_project_docs.py
+```
+
+When an external FMD v3.0.1 engine is available, the strict commands are:
 
 ```powershell
 .\scripts\fmd.ps1 check
 .\scripts\fmd.ps1 record -Action "Describe completed work"
 ```
 
-The Python launcher runs the engine scripts from the separate clone; the PowerShell helper locates an interpreter and calls that launcher. On other platforms use `python scripts/fmd.py check` and `python scripts/fmd.py record --action "..."`. Configure `FMD_ROOT` or pass `--fmd-root` (PowerShell: `-FmdRoot`) for a custom location. Run all from project root. On a cockpit request, use `python scripts/fmd.py cockpit`; its output is generated and ignored.
+The Python launcher runs engine scripts from a separately supplied clone; the PowerShell helper locates an interpreter and calls that launcher. On other platforms use `python scripts/fmd.py check` and `python scripts/fmd.py record --action "..."`. Configure `FMD_ROOT` or pass `--fmd-root` (PowerShell: `-FmdRoot`) for a custom location. Run all commands from the project root. Do not describe the repository-local gate as an FMD strict pass.
 
 After artifact changes, update state when the position changed, then run record. Keep implementation guidance in this canonical BUILD copy; root AGENTS stays a thin pointer. Product artifacts remain Draft until reviewed against real evidence; Locked changes require the canonical change process.
 
@@ -39,23 +45,23 @@ No persistent roster. A single research delegation produced the feasibility note
 
 | Layer | Technology | Pin / state | Verified | Source |
 |-------|------------|-------------|----------|--------|
-| Documentation engine | FMD | 2.0.0 team baseline; drafts authored with local 2.0.1 | 2026-10-01 | README team revision; VERSION in the located engine clone |
+| Documentation format | FMD project documents | FMD v3.0.1 pointer; external engine not distributed | 2026-10-23 | AGENTS, README, and local consistency gate |
 | Local interpreter | Python | 3.12.14 observed in bundled runtime | 2026-09-30 | Interpreter `--version`; docs.python.org/3.12 |
-| Control API | FastAPI / Pydantic | Proposed; exact dependency lock pending first implementation | 2026-09-30 | Confirm official docs and resolved packages before writing framework code |
-| Data | SQLite via Python | Proposed single-instance store; runtime version recorded at implementation | 2026-09-30 | Python sqlite3 and SDD §3 |
+| Control API | Python standard-library HTTP service | Implemented loopback MVP; FastAPI/Pydantic remain a possible remote-stage migration | 2026-10-23 | `vibesec/web.py`, application tests, SDD |
+| Data | In-memory local plan/report state | Implemented for the reload-fresh local MVP; SQLite persistence remains planned for remote work | 2026-10-23 | `vibesec/web.py`, SDD |
 | Sandbox | Contree SDK / client | API documentation verified; package versions and account availability unpinned | 2026-09-30 | docs/research-vibesec.md |
 | Model | NVIDIA Nemotron through Nebius | Exact ID selected by live catalog and eval, not by guessed casing | 2026-09-30 | docs/research-vibesec.md |
-| UI | HTML, CSS, small JavaScript | Proposed native browser implementation; no UI dependencies installed | 2026-09-30 | DSD and PRD flow |
+| UI | Vite 7, React 19, TypeScript 5.9, Tailwind CSS 4, selective shadcn/ui | Build and local 375/768/1440px browser flow passed; keyboard and screen reader audit pending | 2026-10-13 | `frontend/package-lock.json`, DSD and PRD flow |
 
 Never present pending versions as pins. Create a reproducible application dependency lock after resolving and testing the versions. Recheck provider contracts, authentication, model availability, quota, and pricing before remote integration. In particular: the documented SDK takes a constructed client, defaults disposable runs differently from REST, and does not prove live-memory restoration or the planned egress policy.
 
 ## 4. Golden-Path Patterns
 
-No code sample is claimed as verified before implementation. Establish three small tested patterns during the first slice: schema and policy validation before any adapter call; immutable attempt receipts followed by deterministic verification; and deadline/cancellation with operation reconciliation. Prefer stdlib and existing dependencies over new frameworks. Keep implementation and its executable test beside each pattern; update this section only after those tests run.
+The local slice establishes three verified patterns: registered brief and planner-mode validation before execution; deterministic vulnerable/repaired HTTP comparison with exact-canary evidence; and JSON/Python exports derived from the reviewed plan. Remote immutable receipts, deadline/cancellation, persistence, and operation reconciliation remain planned. Prefer stdlib and existing dependencies over new frameworks; keep each new remote pattern beside its executable check.
 
 ## 5. Conventions & Guardrails
 
-Planned application layout: `src/vibesec/` for API, scope policy, planner, executor, verifier, and store; `fixtures/` for owned synthetic targets; `tests/` for policy, contract, verifier, and browser checks; `spikes/` for disposable proof. These directories do not exist as application code yet. Current local tooling validates documentation only.
+Current application layout: `vibesec/` contains the local API, model adapter, proof, and fixture orchestration; `fixture/` contains the owned synthetic notes target; `tests/` contains local contract and behavior checks; and `frontend/` contains the React application. Future remote adapters and persistence should deepen these existing modules or introduce a documented boundary after the provider spike rather than assume a nonexistent `src/` tree.
 
 The model selects probe IDs; reviewed code builds invocations. Registry targets, limits, session authority, and confirmed classifications stay outside model control. Provider keys never enter fixture images, preserved environment, browser bundles, prompts, or logs. Evidence remains bounded, redacted, and escaped. No automatic remote work in untrusted PR CI.
 
@@ -73,7 +79,7 @@ README and pitch state planned versus measured behavior clearly. Keep internal I
 
 ## 5.3 Engineering Maturity
 
-L0: local documentation validation. The pre-commit check uses the existing FMD clone. No remote document CI or application checks are configured. Application maturity is not L1 until meaningful application tests run reliably in CI. Preview, automatic deploy, staged rollout, alerting, backups, and rollback rehearsal are absent. PRD §9 is the authoritative rollback plan; OPS records operational readiness.
+L0 with a working local proof: repository documentation validation, local application tests, production frontend build, and browser evidence exist. The pre-commit hook runs FMD strict validation when an engine is supplied and otherwise runs the repository-local consistency gate. No remote document CI, application CI, provider job, preview deployment, staged rollout, alerting, backup, or rollback rehearsal is configured. Application maturity is not L1 until meaningful checks run reliably in CI. PRD §9 remains the authoritative rollback plan; OPS records operational readiness.
 
 ## 6. Root References
 

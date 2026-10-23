@@ -10,11 +10,11 @@
 **Scrutiny:** [scrutiny-vibesec.md](scrutiny-vibesec.md)
 **BRD:** N/A; no investment or commercial justification decision in this slice.
 
-This is the proposed hackathon slice, authorized for specification by the request to complete setup. No application exists yet. Targets below are acceptance requirements, not measurements.
+This is the proposed hackathon slice. A loopback-only local MVP now implements a reviewed synthetic brief, bounded promise plan, deterministic checks, comparison, and fixture-specific regression export. Remote Sandbox execution and authenticated model behavior remain unverified. Targets below are acceptance requirements, not measurements.
 
 ## 1. Product Purpose & Value Proposition
 
-Give a reviewer a reproducible security finding from an isolated copy of an AI-built app. The first release demonstrates the workflow on an owned synthetic notes API and its repaired counterpart. Each finding includes execution evidence, scope, and a repeatable check; an unobserved attack never becomes a confirmed vulnerability.
+Give a reviewer a reproducible security finding tied to a stated product promise. The first release demonstrates the workflow on an owned synthetic notes API and its repaired counterpart. Each finding includes the synthetic brief, reviewed promise, execution evidence, scope, and a repeatable check; an unobserved attack never becomes a confirmed vulnerability.
 
 ## 2. Target Personas
 
@@ -25,10 +25,11 @@ Primary: Mira, the composite fractional CTO described in the IDEA. She wants evi
 | ID | Feature | Description | Priority |
 |----|---------|-------------|----------|
 | PRD-F1 | Authorized fixture scope | Only a server-side registry of owned fixture revisions and vulnerable/repaired profiles may run. | Must-Have |
-| PRD-F2 | Bounded AI plan | A NVIDIA model served through Nebius selects from an allowlisted probe catalog; plan validation happens before execution. | Must-Have |
+| PRD-F2 | Bounded promise plan | A NVIDIA model served through Nebius maps a registered synthetic brief to a reviewed security promise and its exact allowlisted probe pair; plan validation and human review happen before execution. | Must-Have |
 | PRD-F3 | Independent execution | Run probes in independent filesystem branches with restart, time, output, request, concurrency, and token limits; support cancellation and cleanup. | Must-Have |
 | PRD-F4 | Evidence report | Deterministic assertions classify results; show scope, receipts, incomplete checks, and escaped reproducible evidence; export sanitized JSON. | Must-Have |
 | PRD-F5 | Repair comparison | Replay the same valid plan against the repaired fixture and compare outcomes without claiming comprehensive security. | Must-Have |
+| PRD-F8 | Lasting fixture check | Export a fixture-specific regression script that requires allowed behavior and denies the forbidden behavior. | Must-Have |
 | PRD-F6 | Optional research context | Tavily may supply cited explanatory context after findings exist; retrieval cannot add executable probes or targets. | Could-Have |
 | PRD-F7 | Arbitrary target and automatic repair | Customer URLs, uploaded repositories, generated scripts, autonomous patches, and deploy gates. | Won't-Have (v0) |
 
@@ -42,10 +43,11 @@ As Mira, I want a declared fixture revision so I know what was tested.
 - Given an arbitrary URL, unknown fixture, malformed profile, or credential-bearing input, when submitted, then it is rejected and no inference or sandbox operation occurs.
 - Given a read-only viewer, when they try to create, cancel, or export private run data, then the server denies the action.
 
-**US-02: Review a bounded AI plan** (PRD-F2)
+**US-02: Review a bounded security promise** (PRD-F2)
 
-- Given the fixture contract and catalog, when the NVIDIA model responds, then the plan contains 1 to 9 distinct allowlisted probe IDs and the pinned fixture ID; every field passes the schema and policy validator.
-- Given invented IDs, extra commands, tool requests, or invalid JSON, when validation runs, then the plan is rejected; one bounded repair attempt is allowed, after which the run fails visibly without executing probes.
+- Given a registered synthetic brief, fixture contract, and catalog, when the NVIDIA model responds, then the plan contains the pinned fixture ID, one reviewed promise ID, that promise's exact required probe pair, and a bounded rationale; every field passes the schema and policy validator.
+- Given a valid plan, then the operator sees the allowed and forbidden behavior before starting execution. Model prose cannot classify a finding.
+- Given invented IDs, a promise unrelated to the registered brief, extra commands, tool requests, or invalid JSON, when validation runs, then the plan is rejected; one bounded repair attempt is planned for the remote service, after which the run fails visibly without executing probes. The current MVP fails immediately without retry.
 - Given a real remote run, then model identifier, prompt version, provider request receipt where available, latency, and token usage are recorded without secrets. A fixture-only replay is labeled replay and cannot satisfy the live integration check.
 
 **US-03: Execute and stop safely** (PRD-F3)
@@ -56,7 +58,7 @@ As Mira, I want a declared fixture revision so I know what was tested.
 
 **US-04: Inspect evidence** (PRD-F4)
 
-- Given the seeded cross-user read, when the deterministic assertion matches the exact synthetic canary, then the report records a confirmed finding and the redacted request/response, fixture revision, probe revision, branch ID, and exit status.
+- Given the seeded cross-user read, when the deterministic assertion matches the exact synthetic canary, then the report links the registered brief and reviewed promise to the redacted request/response, fixture revision, probe revision, branch ID, and exit status. Local runs explicitly lack remote branch receipts.
 - Given model text asserting a vulnerability without supporting evidence, then it remains a hypothesis and cannot become confirmed.
 - Given HTML/script content, tokens, or oversized output, then rendering remains inert, sensitive values are redacted, and truncation is identified.
 - Given a cancelled, failed, or empty run, then the interface shows incomplete coverage and never presents a green security verdict.
@@ -64,8 +66,13 @@ As Mira, I want a declared fixture revision so I know what was tested.
 **US-05: Compare after repair** (PRD-F5)
 
 - Given a completed vulnerable run, when the same plan executes against its registered repaired pair, then comparisons match probe IDs and fixture lineage.
-- Given the repaired fixture denies cross-user access, then the seeded finding is marked not reproduced in this comparison, with the new evidence attached.
+- Given the repaired fixture denies cross-user access while the owner still reads the exact seeded note, then the seeded finding is marked not reproduced in this comparison, with both positive and negative evidence attached.
 - Given a skipped or failed repaired probe, then the comparison says inconclusive; it does not claim the repair worked.
+
+**US-06: Keep the promise as a test** (PRD-F8)
+
+- Given a completed synthetic comparison, then the reviewer can download a fixture-specific test for the approved promise. It passes against the repaired fixture and fails against the seeded vulnerable fixture.
+- The export contains synthetic identities only. It is not a general test generator for arbitrary repositories in v0.
 
 ## 5. App Flow & UX Intent
 
@@ -75,7 +82,8 @@ As Mira, I want a declared fixture revision so I know what was tested.
 
 | Screen | Purpose | States |
 |--------|---------|--------|
-| Start run | Select owned fixture/profile and inspect declared limits | Empty: choose fixture; loading: registry; error: unavailable/invalid; success: queued run |
+| Start run | Select a registered synthetic brief and planning mode | Empty: choose brief; loading: planner; error: unavailable/invalid; success: reviewed plan |
+| Promise review | Inspect the allowed and forbidden behavior before execution | Empty: no plan; loading: proposal; error: invalid plan; success: approved run action |
 | Run detail | Show plan, attempts, elapsed time, limits, and stop control | Empty: queued; loading: active attempts; error: partial/failed; success: completed report |
 | Finding detail | Present assertion and evidence | Empty: no confirmed finding; loading: evidence; error: unavailable/truncated; success: redacted evidence |
 | Comparison | Show vulnerable/repaired results | Empty: no paired run; loading: replay; error: inconclusive; success: matched evidence |
@@ -86,7 +94,7 @@ One desktop report workspace. `/` enters fixture selection; `/runs/{id}` shows t
 
 ### 5.3 App Flow
 
-Select fixture, review limits, start run, inspect plan and attempts, read evidence, replay repaired fixture, compare. Rejected scope returns to selection with an explanation. Provider failure offers retry as a new run. Cancellation produces a partial report. Reload resumes the persisted run; duplicate submissions with the same idempotency key return the same run.
+Select a registered synthetic brief, choose local or configured Nebius planning, review the promise, start the scoped run, inspect evidence, compare the repaired fixture, and download the fixture-specific test. Rejected scope returns to selection with an explanation. Provider failure offers retry as a new plan. The current local MVP holds reports in memory until restart; persisted runs, cancellation, and idempotency remain planned for the remote service.
 
 ### 5.4 Onboarding and constraints
 
@@ -110,7 +118,7 @@ See PRD-F7. Also exclude organization billing, vulnerability guarantees, insuran
 
 ## 7. AI Feature Specifications
 
-One NVIDIA Nemotron planner, chosen from the account's available catalog after evaluation. Input: the synthetic fixture's API contract and fixed probe catalog. Output: a schema-validated plan, never code or shell. The human starts an explicitly scoped run; the backend enforces limits independently of model advice. Default budget: 12,000 input tokens and 2,000 output tokens per call, at most two calls per run. Budget selection is provisional and must be calibrated in the spike. Fail closed on refusal, invalid output, unknown model, or exhausted budget. A deterministic replay helps testing but is visibly distinct from a live model run.
+One NVIDIA Nemotron planner, chosen from the account's available catalog after evaluation. Input: a registered synthetic feature brief, the fixture's API contract, and a fixed promise/probe catalog. Output: a schema-validated promise ID, its required probe IDs, and bounded rationale, never code or shell. The human reviews the promise and starts an explicitly scoped run; the backend enforces limits independently of model advice. Default budget: 12,000 input tokens and 2,000 output tokens per call, at most two calls per run. Budget selection is provisional and must be calibrated in the spike. Fail closed on refusal, invalid output, unknown model, or exhausted budget. A deterministic local plan helps testing but is visibly distinct from a live model run.
 
 ## 8. Dependencies & Assumptions
 

@@ -18,6 +18,9 @@ __pycache__/
 *.db-wal
 runtime/
 .tmp/
+frontend/node_modules/
+frontend/dist/
+.impeccable/
 
 # Generated local status view
 cockpit.html

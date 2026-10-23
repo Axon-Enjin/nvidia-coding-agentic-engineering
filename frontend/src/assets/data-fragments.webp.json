@@ -1,0 +1,21 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "date": "2026-10-22",
+  "originalPath": "C:/Users/geinel/.codex/generated_images/01a0ed9f-805d-7e10-aba5-2dc19929de1b/exec-378673cd-b3d7-406f-94b9-6ed6d39738b7.png",
+  "archivedOriginal": ".impeccable/reference-assets/data-fragments-original.png",
+  "productionAsset": "data-fragments.webp",
+  "sourceDimensions": [
+    1254,
+    1254
+  ],
+  "productionDimensions": [
+    960,
+    960
+  ],
+  "bytes": 69570,
+  "conversion": "Canvas2D format encoding and resampling only, WebP quality0.9; no composition edits; center alpha verified0.",
+  "use": "Decorative transparent foreground; never a product screenshot or execution evidence",
+  "promptFile": "data-fragments.prompt.txt",
+  "thirdPartyAsset": false
+}

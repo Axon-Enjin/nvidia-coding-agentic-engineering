@@ -1,6 +1,6 @@
 ---
-description: VibeSec agent guide and local FMD workflow; read AGENTS.md first
+description: VibeSec agent guide and FMD v3.0.1; read AGENTS.md first
 alwaysApply: true
 ---
 
-Read the repository-root `AGENTS.md` first. It points to the local FMD clone and the current project documents.
+Read the repository-root `AGENTS.md` first. It points to FMD v3.0.1 and the current project documents.

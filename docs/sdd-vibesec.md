@@ -5,7 +5,7 @@
 **Version:** 0.1
 **Owner:** Project owner
 **Status:** Draft
-**Last reconciled:** 2026-10-01
+**Last reconciled:** 2026-10-23
 **PRD:** [prd-vibesec.md](prd-vibesec.md)
 
 ## 1. Architectural Vision & Principles
@@ -13,6 +13,8 @@
 Proposed architecture: a Python control-plane service, a single bounded worker, a small same-origin browser interface, and remote sandbox attempts. This design is provisional until the integration spike passes.
 
 The service owns authority; models produce data. Findings require deterministic evidence. A filesystem checkpoint is an immutable baseline to restart from, not a promise of process restoration. Keep provider adapters narrow enough to test failure and cancellation contracts.
+
+**Current local MVP (2026-10-13):** `vibesec.web` is a standard-library HTTP server bound to `127.0.0.1`. It serves a same-origin browser UI and an in-memory plan/report store. `POST /api/plans` accepts only registered synthetic brief IDs and a local or configured Nebius planner mode; the returned plan is reviewed before `POST /api/runs` executes. The executor starts both fixture profiles on loopback and checks the owner's allowed read and the forbidden read. `GET /api/runs/{id}`, `/report.json`, and `/regression.py` expose the local result. Live Nebius planning code exists but is not account-verified; remote Sandbox execution, persistent run storage, authentication, cancellation, provider receipts, and public hosting remain the proposed architecture below. The local server must not be publicly exposed.
 
 ## 2. High-Level Architecture
 
@@ -32,7 +34,7 @@ flowchart LR
 
 | Layer | Proposed technology | Responsibility |
 |-------|---------------------|----------------|
-| Client | Semantic HTML, CSS, small JavaScript module | Run status, evidence, comparisons; no provider keys |
+| Client | Vite, React, TypeScript, Tailwind CSS v4, selective shadcn/ui | Run status, evidence, comparisons; no provider keys |
 | API | FastAPI and Pydantic, exact versions selected in spike | Input schema, operator session, scope, idempotency |
 | Worker | Python 3.12 asyncio with explicit semaphore | Run transitions, budgets, provider calls, cancellation |
 | Store | SQLite for one service/worker instance | Metadata, attempts, findings, events; no customer records |
@@ -46,6 +48,7 @@ flowchart LR
 | PRD-F3 | Worker and sandbox adapter | attempts, events; POST /api/runs/{id}/cancel |
 | PRD-F4 | Verifier and report projection | findings; GET /api/runs/{id}, report export |
 | PRD-F5 | Pairing validator and comparison projection | runs.parent_run_id; comparison endpoint |
+| PRD-F8 | Fixture-specific regression export | GET /api/runs/{id}/regression.py in the local MVP |
 
 ## 3. Data Architecture
 
@@ -108,7 +111,7 @@ Retention target: metadata/evidence seven days in staging, subject to judge-acce
 
 ## 4. API Design & External Integrations
 
-The contracts below are proposed, not implemented. All control requests use same-origin operator session authorization plus CSRF checks. Errors use `{code, message, request_id}` with no raw upstream bodies.
+The remote-service contracts below are proposed, not implemented. The loopback MVP endpoints are described in §1. The proposed public control API requires same-origin operator session authorization plus CSRF checks. Errors use `{code, message, request_id}` with no raw upstream bodies.
 
 | Method | Path | Purpose |
 |--------|------|---------|
@@ -190,7 +193,7 @@ Provider 429 responses use bounded backoff within the run deadline. Authenticati
 
 ## 6. Infrastructure, CI/CD & Deployment
 
-Local docs validation uses the existing FMD clone. Application packaging, dependency lock, hosting, TLS, operator identity provisioning, and CI do not exist yet. Planned deployment is one service and worker with a persistent volume and read-only fixture images; the host is chosen after the spike. Do not deploy a public command-execution API.
+Repository documentation validation uses `scripts/check_project_docs.py`; an optionally supplied FMD v3.0.1 engine provides the separate strict check. The frontend has a dependency lock and production build, while Python packaging, hosting, TLS, operator identity provisioning, persistent storage, and CI do not exist yet. Planned deployment is one service and worker with a persistent volume and read-only fixture images; the host is chosen after the spike. Do not deploy a public command-execution API.
 
 For synthetic runs: back up metadata before migration; proposed RPO 24 hours and RTO one hour. No restore has been tested. The service can recreate fixtures from pinned revisions. Provider secrets live in deployment configuration, not the backup. Follow PRD §9 for rollback.
 
@@ -207,7 +210,7 @@ For synthetic runs: back up metadata before migration; proposed RPO 24 hours and
 
 ## 8. AI Architecture
 
-One planner chooses allowlisted probe IDs. No model receives raw unrestricted shell access. Use a versioned prompt, immutable fixture contract, and probe catalog; separate untrusted fixture text from instructions. JSON output support varies by model, so local validation is mandatory even if the provider supplies a structured-output mode. The first live integration selects and records the exact available model ID and version where the provider exposes one.
+One planner maps a registered synthetic brief to an allowlisted security promise and that promise's exact probe pair. No model receives raw unrestricted shell access. Use a versioned prompt, immutable fixture contract, and promise/probe catalog; separate untrusted fixture text from instructions. JSON output support varies by model, so local validation is mandatory even if the provider supplies a structured-output mode. The first live integration selects and records the exact available model ID and version where the provider exposes one.
 
 ### 8.1 Threat controls
 
