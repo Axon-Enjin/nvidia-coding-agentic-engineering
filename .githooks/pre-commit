@@ -1,6 +1,7 @@
 #!/bin/sh
 # Documentation integrity only. Does not stage or rewrite the user's work.
-# Runs when FMD v3.0.1 is available. A missing engine does not block the commit.
+# Runs the external FMD v3.0.1 validator when available. Otherwise it runs the
+# repository-local consistency gate; missing engine access no longer skips all checks.
 set -eu
 
 if command -v python3 >/dev/null 2>&1; then
@@ -10,28 +11,28 @@ elif command -v python >/dev/null 2>&1; then
 elif command -v pwsh >/dev/null 2>&1 || command -v powershell >/dev/null 2>&1; then
     py=
 else
-    echo 'FMD v3.0.1 is not available; skipping the documentation check.' >&2
-    exit 0
+    echo 'Python is required for the repository documentation check.' >&2
+    exit 1
 fi
 
 if [ -n "$py" ]; then
     if ! "$py" scripts/fmd.py locate >/dev/null 2>&1; then
-        echo 'FMD v3.0.1 is not available; skipping the documentation check.' >&2
-        exit 0
+        echo 'FMD v3.0.1 is not available; running the repository consistency gate.' >&2
+        exec "$py" scripts/check_project_docs.py
     fi
     exec "$py" scripts/fmd.py check
 fi
 
 if command -v pwsh >/dev/null 2>&1; then
     if ! pwsh -NoProfile -File scripts/fmd.ps1 locate >/dev/null 2>&1; then
-        echo 'FMD v3.0.1 is not available; skipping the documentation check.' >&2
-        exit 0
+        echo 'FMD v3.0.1 is not available; running the repository consistency gate.' >&2
+        exec pwsh -NoProfile -Command 'python scripts/check_project_docs.py'
     fi
     exec pwsh -NoProfile -File scripts/fmd.ps1 check
 fi
 
 if ! powershell -NoProfile -ExecutionPolicy Bypass -File scripts/fmd.ps1 locate >/dev/null 2>&1; then
-    echo 'FMD v3.0.1 is not available; skipping the documentation check.' >&2
-    exit 0
+    echo 'FMD v3.0.1 is not available; running the repository consistency gate.' >&2
+    exec powershell -NoProfile -ExecutionPolicy Bypass -Command 'python scripts/check_project_docs.py'
 fi
 exec powershell -NoProfile -ExecutionPolicy Bypass -File scripts/fmd.ps1 check

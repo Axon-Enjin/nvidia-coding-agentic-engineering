@@ -10,4 +10,6 @@ Team setup is in [README.md](README.md). Use `FMD_ROOT` for a custom location. T
 
 Use `python scripts/fmd.py check` for strict validation and `python scripts/fmd.py record --action "Describe completed work"` to update the index and append the log. PowerShell equivalents use scripts/fmd.ps1. Generate a cockpit only on request.
 
+When the external engine is unavailable, run `python scripts/check_project_docs.py` as the repository-local consistency gate. It checks the existing project artifacts without claiming an FMD strict pass.
+
 Keep this file as a pointer. The engine materializer writes AGENTS.md, so use an explicit temporary --out directory when materializing references. Project build guidance remains in docs/build-vibesec.md.

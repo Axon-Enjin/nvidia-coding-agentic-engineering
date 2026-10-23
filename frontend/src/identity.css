@@ -1,0 +1,240 @@
+@font-face {
+  font-family: "Aeonik";
+  src: url("/fonts/AeonikTRIAL-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Aeonik";
+  src: url("/fonts/AeonikTRIAL-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Aeonik";
+  src: url("/fonts/AeonikTRIAL-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Pixel";
+  src: url("/fonts/GeistPixel-Regular-VariableFont_ELSH.ttf") format("truetype");
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: "Awesome Serif";
+  src: url("/fonts/AwesomeSerifItalic-BdRegular.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Awesome Serif";
+  src: url("/fonts/AwesomeSerifItalic-BoldTall.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/IBMPlexSans-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/IBMPlexMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  --bg: #101315;
+  --paper: #f3f5f6;
+  --ink: #182126;
+  --white: #f5f7f8;
+  --lime: #d6f542;
+  --blue: #006d93;
+  --blue-deep: #00536f;
+  --petrol: #123b48;
+  --forest: var(--petrol);
+  --focus: #006d93;
+  --muted: #b7c2c7;
+  --line: #d4dce0;
+  --dark-line: #39484f;
+  --danger: #e3a284;
+  --success: #4c6227;
+  --canvas: #f8f9fa;
+  --surface: #edf0f2;
+  --surface-volt: #eff5da;
+  --text-secondary: #55636c;
+  --text-on-dark: #becbd1;
+  --volt-hover: #e2ff66;
+  --body: "IBM Plex Sans", system-ui, sans-serif;
+  --marketing: "Aeonik", "IBM Plex Sans", system-ui, sans-serif;
+  --editorial: "Awesome Serif", Georgia, serif;
+  --display: "Geist Pixel", "IBM Plex Mono", monospace;
+  --pixel: "Geist Pixel", "IBM Plex Mono", monospace;
+  --mono: "IBM Plex Mono", monospace;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --section-space: 64px;
+}
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
+  --color-primary: var(--lime);
+  --color-border: var(--line);
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: auto;
+  scroll-padding-top: 20px;
+  scrollbar-color: #667e89 var(--bg);
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--bg);
+  color: var(--white);
+  font: 16px/1.5 var(--body);
+  -webkit-font-smoothing: antialiased;
+  font-synthesis: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+blockquote {
+  margin: 0;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+select {
+  cursor: pointer;
+}
+button,
+a,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+button:disabled,
+select:disabled {
+  cursor: not-allowed;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  text-underline-offset: 5px;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+button:focus-visible,
+a:focus-visible,
+select:focus-visible,
+pre:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+h1:focus,
+h2:focus,
+h3:focus,
+main:focus {
+  outline: none;
+}
+::selection {
+  color: var(--bg);
+  background: var(--lime);
+}
+input,
+textarea {
+  caret-color: var(--blue);
+}
+code,
+pre {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+.shell {
+  width: min(1280px, calc(100% - 96px));
+  margin-inline: auto;
+}
+.arrow {
+  display: block;
+  width: 22px;
+  height: 22px;
+  flex: none;
+  transition: transform 160ms var(--ease-out);
+}
+.brand-mark {
+  display: block;
+  width: 42px;
+  height: 25px;
+  flex: none;
+  overflow: visible;
+}
+.brand-mark__eye {
+  fill: var(--paper);
+}
+.brand-mark__band {
+  fill: var(--lime);
+}
+.brand-mark__v {
+  fill: var(--bg);
+}
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1;
+}
+.brand-name {
+  display: block;
+  white-space: nowrap;
+  font: 400 1em/1 var(--marketing);
+  letter-spacing: -0.025em;
+}
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 12px 18px;
+  background: var(--white);
+  color: var(--bg);
+  transform: translateY(-160%);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

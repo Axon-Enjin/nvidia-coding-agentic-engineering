@@ -12,13 +12,24 @@ The product scope, system design, interface direction, test plan, and demo outli
 
 ## Run the browser MVP
 
-Use Python 3.12 or newer. No package installation or credits are needed for the local walkthrough.
+Use Python 3.12 or newer and Node.js 20.19+ or 22.12+. Install the frontend dependencies and build once, then start the Python server. The local walkthrough uses no Nebius credits.
+
+```bash
+cd frontend
+npm install
+npm run build
+cd ..
+```
+
+On PowerShell systems that block `npm.ps1`, use `npm.cmd` instead of `npm`.
 
 ```bash
 python -m vibesec.web --port 8000
 ```
 
-Open `http://127.0.0.1:8000`. Choose **Private notes**, leave **Local walkthrough** selected, generate the plan, review the promise, and run the comparison. The report shows Bob receiving Alice's exact note before the repair and a 403 denial afterward. Alice's legitimate read must continue to work. The **Sign-in required** brief selects a different reviewed check and demonstrates a case where no violation is observed.
+Open `http://127.0.0.1:8000`. The homepage introduces the workflow; **Run the sample check** opens the dedicated workbench at `http://127.0.0.1:8000/?view=workbench`. Choose **Private notes**, leave the local reviewed plan selected, prepare the plan, review the promise and requests, and run the comparison. The report shows another account receiving the note owner's exact record before the repair and a 403 denial afterward. The note owner's legitimate read must continue to work. The **Sign-in required** brief selects a different reviewed check and demonstrates a case where no violation is observed. Moving between the homepage and workbench retains the current study; reloading starts a fresh frontend workflow.
+
+For frontend development, leave the Python server on port 8000 and run `npm run dev` from `frontend` in a second terminal. Open `http://127.0.0.1:5173`; Vite proxies `/api` to the local Python server. The production build is served by Python from `frontend/dist`.
 
 Download the evidence JSON or the fixture-specific regression script from the report. To run the script, start the repaired fixture in another terminal:
 
@@ -43,7 +54,7 @@ The original command-line proof is still available:
 python -m vibesec.local_proof
 ```
 
-The proof starts both fixture profiles on loopback, makes the same request as synthetic user Bob for Alice's note, and reports an exact canary match only when the response contains it. Its output is labeled `local_fixture_proof`; it is not a Nebius Sandbox or model run. The standalone fixture can also be started with `python fixture/notes_api.py --profile vulnerable --port 8080`; use `repaired` for the negative control. Never expose the intentionally vulnerable profile outside loopback.
+The proof starts both fixture profiles on loopback, makes the same request from another synthetic account for the note owner's record, and reports an exact canary match only when the response contains it. Its output is labeled `local_fixture_proof`; it is not a Nebius Sandbox or model run. The standalone fixture can also be started with `python fixture/notes_api.py --profile vulnerable --port 8080`; use `repaired` for the negative control. Never expose the intentionally vulnerable profile outside loopback.
 
 The planned remote integration uses NVIDIA Nemotron through Nebius inference and Token Factory Sandboxes for execution. Exact model and dependency versions will be recorded after live verification. Model output selects a reviewed promise and its supported checks; reviewed code controls execution and verifies findings.
 
@@ -63,7 +74,15 @@ Keep provider credentials in your local environment. Share access through the te
 
 ## Check the documentation
 
-Document tooling is FMD v3.0.1.
+The document set was authored for FMD v3.0.1. The FMD engine is intentionally external and is not part of this repository.
+
+Every clone can run the repository-local consistency gate:
+
+```bash
+python scripts/check_project_docs.py
+```
+
+This checks required artifacts, active version pointers, document links, stale implementation claims, encoding markers, merge markers, and state/index freshness. It is a fallback integrity check, not a substitute for FMD's strict validator.
 
 Use Python 3.12; on systems where it is named `python3`, substitute that command. An existing local directory can be selected with `FMD_ROOT` or `python scripts/fmd.py check --fmd-root /path/to/FMD`. The launcher also discovers a directory named `FMD` one or two directories above this repository.
 
@@ -81,7 +100,7 @@ python scripts/fmd.py check
 python scripts/fmd.py record --action "Describe completed work"
 ```
 
-Enable the optional local pre-commit check with `git config --local core.hooksPath .githooks`. The hook runs the documentation check when FMD v3.0.1 is available and skips it otherwise. Teammates can still run the local MVP without that engine. Application CI remains pending.
+Enable the optional local pre-commit check with `git config --local core.hooksPath .githooks`. The hook runs FMD's strict check when an engine is available and otherwise runs `scripts/check_project_docs.py`; documentation checks are no longer skipped merely because the external engine is absent. Teammates can run and verify this repository without another clone. Application CI remains pending.
 
 ## Documentation
 
@@ -97,7 +116,7 @@ Enable the optional local pre-commit check with `git config --local core.hooksPa
 | [Competitive landscape](docs/competitive-landscape-vibesec.md) | Current alternatives, limitations, and proposed edge |
 | [Full index](docs/index.md) | All existing project documents |
 
-[Brand](BRAND.md) and [design](DESIGN.md) describe the proposed interface. [Hackathon rules](HACKATHON.md), [sponsor context](ORG.md), [original research prompt](PROMPT.md), and [original report](Nebius-Hackathon-Research-Strategy.md) remain available as source context. Claims in the original report are not automatically accepted as product evidence.
+[Brand](BRAND.md) and [design](DESIGN.md) describe the implemented visual system. [Hackathon rules](HACKATHON.md), [sponsor context](ORG.md), [original research prompt](PROMPT.md), and [original report](Nebius-Hackathon-Research-Strategy.md) remain available as source context. Claims in the original report are not automatically accepted as product evidence.
 
 ## Demo and distribution
 

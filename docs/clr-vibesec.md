@@ -5,7 +5,7 @@
 **Version:** 0.1
 **Owner:** Project owner
 **Status:** Draft
-**Last reconciled:** 2026-10-01
+**Last reconciled:** 2026-10-23
 **PRD:** [prd-vibesec.md](prd-vibesec.md)
 **SDD:** [sdd-vibesec.md](sdd-vibesec.md)
 
@@ -52,7 +52,7 @@ Judge instructions must state synthetic scope, live versus replay behavior, limi
 
 ## 5. IP and Distribution
 
-Authoring uses FMD v3.0.1 outside this repository. This repository keeps the project documents and does not vendor the engine. Product code does not yet exist. The product license is MIT. Before a public hackathon release, review distribution rights for included components. Keep software/component notices distinct. No brand clearance or model-output ownership conclusion is claimed. System fonts and a plain-text wordmark avoid unlicensed media assets.
+The project documents target FMD v3.0.1, while the engine remains outside this repository. The local product code, original eye/V identity, generated illustrations, self-hosted fonts, prompt/provenance records, and MIT license are present. IBM Plex ships under the included SIL Open Font License. Before public deployment, confirm redistribution rights for the supplied Aeonik Trial, Geist Pixel, and Awesome Serif files and review every included component and generated asset. Keep software, font, and asset notices distinct. No brand clearance or model-output ownership conclusion is claimed.
 
 ## 6. Platforms
 

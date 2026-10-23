@@ -5,7 +5,7 @@
 **Version:** 0.1
 **Owner:** Project owner
 **Status:** Draft
-**Last reconciled:** 2026-10-01
+**Last reconciled:** 2026-10-23
 **PRD:** [prd-vibesec.md](prd-vibesec.md)
 
 ## 1. Architectural Vision & Principles
@@ -34,7 +34,7 @@ flowchart LR
 
 | Layer | Proposed technology | Responsibility |
 |-------|---------------------|----------------|
-| Client | Semantic HTML, CSS, small JavaScript module | Run status, evidence, comparisons; no provider keys |
+| Client | Vite, React, TypeScript, Tailwind CSS v4, selective shadcn/ui | Run status, evidence, comparisons; no provider keys |
 | API | FastAPI and Pydantic, exact versions selected in spike | Input schema, operator session, scope, idempotency |
 | Worker | Python 3.12 asyncio with explicit semaphore | Run transitions, budgets, provider calls, cancellation |
 | Store | SQLite for one service/worker instance | Metadata, attempts, findings, events; no customer records |
@@ -193,7 +193,7 @@ Provider 429 responses use bounded backoff within the run deadline. Authenticati
 
 ## 6. Infrastructure, CI/CD & Deployment
 
-Local docs validation uses the existing FMD clone. Application packaging, dependency lock, hosting, TLS, operator identity provisioning, and CI do not exist yet. Planned deployment is one service and worker with a persistent volume and read-only fixture images; the host is chosen after the spike. Do not deploy a public command-execution API.
+Repository documentation validation uses `scripts/check_project_docs.py`; an optionally supplied FMD v3.0.1 engine provides the separate strict check. The frontend has a dependency lock and production build, while Python packaging, hosting, TLS, operator identity provisioning, persistent storage, and CI do not exist yet. Planned deployment is one service and worker with a persistent volume and read-only fixture images; the host is chosen after the spike. Do not deploy a public command-execution API.
 
 For synthetic runs: back up metadata before migration; proposed RPO 24 hours and RTO one hour. No restore has been tested. The service can recreate fixtures from pinned revisions. Provider secrets live in deployment configuration, not the backup. Follow PRD §9 for rollback.
 

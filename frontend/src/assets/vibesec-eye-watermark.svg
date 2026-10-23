@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400">
+  <defs>
+    <path id="eye-v" fill-rule="evenodd" d="M2 14C7.8 6.4 14.8 3 24 3s16.2 3.4 22 11c-5.8 7.6-12.8 11-22 11S7.8 21.6 2 14ZM9.5 4.8h8.2L24 15.9l6.3-11.1h8.2L27.1 23.4h-6.2Z"/>
+  </defs>
+  <g fill="black">
+    <use href="#eye-v" transform="translate(372 48) scale(4.2)"/>
+    <use href="#eye-v" transform="translate(66 234) scale(4.2)"/>
+  </g>
+</svg>

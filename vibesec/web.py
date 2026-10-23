@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import mimetypes
 import threading
 import uuid
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -13,7 +14,7 @@ from vibesec.executor import regression_script, run_local_comparison
 from vibesec.planner import PlannerError, configured_model, plan_with_nebius
 
 
-ASSETS = Path(__file__).resolve().parents[1] / "web"
+ASSETS = Path(__file__).resolve().parents[1] / "frontend" / "dist"
 
 
 class AppState:
@@ -91,16 +92,15 @@ def make_handler(state: AppState):
                         attachment="regression_test.py",
                     )
                 return self.respond(404, {"error": "not_found"})
-            assets = {
-                "/": ("index.html", "text/html; charset=utf-8"),
-                "/app.css": ("app.css", "text/css; charset=utf-8"),
-                "/app.js": ("app.js", "text/javascript; charset=utf-8"),
-                "/access-study.svg": ("access-study.svg", "image/svg+xml"),
-            }
-            if path not in assets:
+            if path not in ("/", "/favicon.svg") and not path.startswith(("/assets/", "/fonts/")):
                 return self.respond(404, {"error": "not_found"})
-            filename, content_type = assets[path]
-            return self.respond(200, (ASSETS / filename).read_bytes(), content_type)
+            asset = (ASSETS / ("index.html" if path == "/" else path.lstrip("/"))).resolve()
+            if not asset.is_relative_to(ASSETS.resolve()) or not asset.is_file():
+                return self.respond(404, {"error": "asset_not_found", "message": "Build the frontend with npm run build first."})
+            content_type = mimetypes.guess_type(asset.name)[0] or "application/octet-stream"
+            if content_type.startswith("text/") or content_type in ("application/javascript", "image/svg+xml"):
+                content_type += "; charset=utf-8"
+            return self.respond(200, asset.read_bytes(), content_type)
 
         def do_POST(self):
             origin = self.headers.get("Origin")

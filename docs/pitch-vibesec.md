@@ -5,7 +5,7 @@
 **Version:** 0.1
 **Owner:** Project owner
 **Status:** Draft
-**Last reconciled:** 2026-09-30
+**Last reconciled:** 2026-10-23
 **IDEA:** [idea-vibesec.md](idea-vibesec.md)
 **Requirements:** [product requirements](prd-vibesec.md)
 
@@ -27,7 +27,7 @@ Close: This demonstrates a bounded security workflow. It does not claim to find 
 
 | Scene | On screen | Spoken point | Seconds |
 |-------|-----------|--------------|---------|
-| 1 | Original "private notes" brief and two synthetic accounts | A normal feature can work while its stated access rule fails. | 15 |
+| 1 | Original "private notes" brief, the note owner, and another synthetic account | A normal feature can work while its stated access rule fails. | 15 |
 | 2 | Fixture revision and declared test scope | This demo uses our own fixture and fake data. | 20 |
 | 3 | Reviewed promise and live plan receipt | NVIDIA Nemotron through Nebius maps the brief to a reviewed rule and its bounded checks. | 25 |
 | 4 | Actual remote attempts and recorded branch IDs | The checks run in separate Token Factory Sandbox branches. | 35 |

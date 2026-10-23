@@ -1,28 +1,28 @@
-# Design System: VibeSec Evidence Desk
+# Design System: VibeSec Proof Lab
 
-**System Name:** VibeSec Evidence Desk
+**System Name:** VibeSec Proof Lab
 **Date:** 2026-09-30
-**Version:** 0.3
+**Version:** 0.7
 **Owner:** Project owner
 **Status:** Draft
-**Last reconciled:** 2026-10-13
+**Last reconciled:** 2026-10-23
 **PRD:** [prd-vibesec.md](prd-vibesec.md)
 
 ## 0. Brand Stance
 
 **Selected mode:** Product, focused on reviewing evidence.
 
-**Cultural or aesthetic reference:** A lab notebook beside a test bench: clearly numbered attempts, legible observations, and room for uncertainty.
+**Cultural or aesthetic reference:** Technical editorial graphics, physical evidence folders, and permission-boundary diagrams. A request travels toward an explicit access boundary; only observed HTTP evidence completes the route.
 
 **Distinctive line:** Show the request. Show the record. Run the check again.
 
-**Archetypical user:** Mira, the fictional reviewer checking a small team's app before a staging release. This is a proposed design direction, not a user-tested identity.
+**Archetypical user:** A builder or reviewer checking a small team's app before a staging release. This is a proposed design direction, not a user-tested identity.
 
-Give the reviewer an evidence desk: a direct question about Bob and Alice's note, a three-step workbench, and the actual HTTP evidence after a run. Use a restrained evergreen accent for navigation and review; reserve red/green for labeled evidence states. Avoid hacker imagery, decorative attack maps, sweeping safety scores, and celebrations for unexecuted checks. People appear through the synthetic two-user scenario, not fabricated testimonials.
+Lead with the exact question the sample can answer: can another account read the note owner's private record? The project-authored boundary illustration distinguishes the expected allowed and denied paths. Use cool reading surfaces, charcoal, Volt, and restrained petrol blue. Status always has a written label. Avoid fabricated logos, safety scores, and celebrations for unexecuted checks.
 
 ## 0.5 Concept Visuals
 
-The local browser MVP uses a plain text wordmark and a project-authored SVG of Alice's note and Bob's access question (`web/access-study.svg`). The illustration is labeled as a synthetic example, not a run receipt. No raster assets, external logo files, or approved marketing mockups exist. The workbench shows the actual plan and evidence after execution; remote partial-run comprehension remains to be tested.
+The marketing page uses product-specific permission-boundary and evidence-folio artwork. Essential claims, actors, expectations, and technical values remain HTML. The workbench report gives the forbidden request a prominent before/after HTTP pair and exact responses in expandable evidence rows. Remote partial-run comprehension remains to be tested.
 
 ## 1. Design Philosophy & Vision
 
@@ -32,43 +32,44 @@ Calm, inspectable, specific. A finding should lead directly to its evidence; an 
 
 ### 2.0 Token Architecture
 
-Primitive tokens hold color/spacing values; semantic tokens convey role; component tokens reference semantic tokens. The local interface uses warm light surfaces, fine rules, and a restrained evergreen accent. Evidence states retain text labels.
+Primitive tokens hold color and spacing values; semantic tokens convey role; component tokens reference semantic tokens. The marketing page uses cool white and charcoal with Volt emphasis and petrol-blue technical accents. Evidence states retain text labels.
 
 ### 2.1 Colors
 
 | Token | Value |
 |-------|-------|
-| `--bg` | `#F7F8F5` |
-| `--surface` | `#FFFFFF` |
-| `--line` | `#D6DED6` |
-| `--ink` | `#1C2922` |
-| `--accent` | `#285F45` |
-| `--muted` | `#59665F` |
-| `--green` | `#286347` |
-| `--amber` | `#77571F` |
-| `--red` | `#A6363F` |
+| `--volt` | `#D6F542` |
+| `--ink` | `#101315` |
+| `--paper` | `#F8F9FA` |
+| `--surface` | `#F3F5F6` |
+| `--panel` | `#EDF0F2` |
+| `--blue` | `#006D93` |
+| `--blue-deep` | `#00536F` |
+| `--muted` | `#5C656B` |
+| `--success` | `#356B45` |
+| `--danger` | `#A63D2F` |
 
 Semantic status colors pair with labels and icons, never color alone. Validate actual text/component contrast when implemented; the palette is not a completed accessibility audit.
 
 ### 2.2 Logo System
 
-The local MVP uses a plain VibeSec text wordmark with a small slash. It is an interface treatment, not a final approved logo. Keep rendered text at least 20px and avoid external logo dependencies. A favicon can be designed after the interface works.
+The VibeSec lockup pairs a clean Aeonik wordmark with the original eye/V symbol: a complete eye silhouette, one Volt verification band, and a dark V cut through the center. The compact mark, watermark, and favicon derive from the same geometry. Avoid external logo dependencies.
 
 ### 2.3 Typography
 
-System sans-serif stack for UI, system monospace stack for small labels and evidence. The first-screen question is prominent without crowding the diagram; workbench headings are smaller for easy scanning. Body is 16px/1.5; request and response text wraps at 12px/1.5 in the local MVP. No downloaded fonts or third-party font requests. A copy control remains planned.
+Self-hosted Aeonik carries the calm marketing hierarchy. Geist Pixel is limited to the hero word “proof” and the oversized identity signature. Awesome Serif Italic marks the short judgment phrases “as intended” and “Evidence decides.” IBM Plex Sans carries the product interface; IBM Plex Mono carries requests, responses, identifiers, and provenance. No third-party font request occurs at runtime. IBM Plex license files ship with the fonts; production redistribution rights for the supplied Aeonik Trial, Geist Pixel, and Awesome Serif files must be confirmed before public deployment.
 
 ### 2.4 Imagery and depth
 
-No stock photography or external imagery. The original SVG shows a single owned note and two actors; the question mark on Bob's path stays unresolved until execution. Any future branch diagram that depicts execution must use real receipts with a matching tabular list. Evidence panels use borders; no simulated activity is animated as if live.
+No stock photography or unrelated portraits. Original generated artwork depicts the implemented concepts: an engineered permission boundary and a traceable request/response evidence folio. Prompt and provenance records live beside the assets. Essential wording stays in HTML, and operational evidence panels use actual HTTP responses. Subtle screenprint grain and complete eye/V watermarks may texture marketing surfaces; they never enter the workbench evidence panels.
 
 ## 3. Layout & Spatial System
 
-Base spacing 4px; scale 4, 8, 12, 16, 24, 32, 48px. Maximum content width 1220px. The local workbench and comparison use two columns on desktop and stack in reading order below 760px. Check widths 375, 768, 1024, and 1440px. Long evidence wraps without overflowing the viewport.
+Base spacing 4px; scale 4, 8, 12, 16, 24, 32, 48, 64, and 96px. Maximum content width 1380px. The marketing page moves through four clear chapters: hero, “Working isn’t the same as working as intended,” “AI proposes. Evidence decides,” and “Verify one promise.” The workbench uses a horizontal progress row and one active stage; evidence columns stack on narrow screens. Check widths 320, 390, 768, 1280, 1440, and 1920px. Long evidence wraps without overflowing the viewport.
 
 ## 4. Core Component Specs
 
-Buttons: 44px minimum target height; primary starts a declared fixture run, secondary exports, destructive stops work. Hover darkens the semantic fill; focus has a visible 2px outline with 2px offset. Disabled controls remain labeled with a reason, rather than opacity alone.
+Buttons: 44px minimum target height; primary starts a declared fixture run, secondary exports, destructive stops work. Hover uses a short color response; focus has a visible outline with offset on both dark and light surfaces. Arrow movement is restrained and directional. Disabled controls remain labeled with a reason, rather than opacity alone.
 
 Inputs: registered synthetic brief and planner-mode selects in the local MVP; the future remote run also shows fixture/profile and declared limits. All have visible labels and inline validation. No target URL input. Scope and budgets are read-only facts supplied by the service.
 
@@ -78,7 +79,7 @@ Empty state: choose the owned demo fixture and explain its synthetic data. Loadi
 
 ## 5. Motion
 
-The first screen is static. Plan and report arrival use a 200ms opacity transition; hover feedback uses 150ms color changes. The boundary illustration does not move or imply live execution. No simulated progress or continuous animation. Respect reduced motion, and announce status changes politely without reading raw request bodies aloud.
+Marketing headings and artwork enter once with restrained opacity and transform changes as their chapter becomes visible. The native cursor remains visible; a small pooled pixel trail is decorative, stops during selection and scrolling, and does not run for touch or reduced-motion users. Lab stages and expanded evidence use short transitions. There is no simulated run progress, smooth-scroll override, looping ornament, or animated finding. Reduced-motion preference removes decorative motion. Announce operational status changes immediately without reading raw request bodies aloud.
 
 ## 6. Accessibility
 
@@ -86,11 +87,11 @@ Use landmarks, ordered headings, native controls, table headers, visible focus, 
 
 ## 7. Design Settings
 
-Low visual variance, low motion, moderate information density. The evidence is the main visual material. Keep documentation and product copy readable without familiarity with the build process.
+One strong question, one original route diagram, and a quiet workspace. The actual request and response remain the main product material. Keep documentation and product copy readable without familiarity with the build process.
 
 ## 8. Implementation Quality Gate
 
-A loopback browser interface has been implemented. Desktop rendering and a 390px device-emulated local plan/run/report flow were inspected on 2026-10-13; no horizontal overflow or JavaScript exception was observed in that run. Accessibility, performance, remote partial-run states, and a complete interface audit remain unexecuted. Before a demo release, no critical or high-severity interface defect may remain, and every primary state must be tested. Do not report a taste or accessibility score until an actual audit exists.
+The React frontend and local API flow have browser evidence across 320px through 1920px, including reduced motion, focus behavior, view retention, failure and inconclusive states, the local 200-to-403 forbidden-request comparison, and both exports. The production build passes as of 2026-10-23. A full screen-reader audit, physical-device performance certification, remote partial-run check, provider check, and hosted check remain unexecuted. Do not report an accessibility, security, or taste score without an actual audit.
 
 | Surface | Example |
 |---------|---------|
@@ -101,4 +102,4 @@ A loopback browser interface has been implemented. Desktop rendering and a 390px
 
 ## 9. Materialization
 
-This source produces the root brand and design references. Proposed design version 0.3; the plain wordmark and original SVG are implemented but not approved as a final identity. Reconcile it after further browser and evidence-state testing.
+This source produces the root brand and design references. Version 0.7 records the implemented editorial chapters, eye/V identity, typography, product-specific artwork, and calm evidence workbench. It is not customer-tested brand validation or remote integration proof.

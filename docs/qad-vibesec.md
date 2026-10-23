@@ -5,7 +5,7 @@
 **Version:** 0.1
 **Owner:** Project owner
 **Status:** Draft
-**Last reconciled:** 2026-10-01
+**Last reconciled:** 2026-10-23
 **PRD:** [prd-vibesec.md](prd-vibesec.md)
 **RFC:** [sandbox execution](rfc-vibesec-sandbox-execution.md)
 
@@ -15,7 +15,7 @@
 
 Every Must-Have is covered below. Test scope policy, deterministic assertions, branch independence, incomplete states, ownership, output handling, cancellation, and budgets independently of model prose. Compare seeded vulnerable fixtures with repaired negative controls. Hypothesis generation and report verification require separate oracles.
 
-Proposed tooling: Python pytest for unit and service integration tests, real temporary SQLite stores for persistence tests, deterministic fake adapters for fault injection, and real Contree contract tests in an explicitly enabled credentialed job. Browser tests use Playwright once the interface exists. Versions and executable commands are chosen and locked with the first implementation; they are not installed by this setup.
+Current local tooling uses Python standard-library tests for contract, HTTP, comparison, export, and mocked-planner behavior; Vite builds the React frontend; Playwright has been used for the browser flow and responsive evidence. Future remote work adds temporary SQLite persistence tests, deterministic adapter fault injection, and real Sandbox contract tests in an explicitly enabled credentialed job. Provider versions and executable commands are recorded only after live verification.
 
 ## 2. Environments & Data
 
@@ -32,7 +32,7 @@ The fixture seed and revision must be part of each receipt. Test reset destroys 
 | H-03 | Two branches from one baseline; write canary only in branch A | Branch B and baseline unchanged; app startup explicit | PRD-F3 / US-03 |
 | H-04 | Seeded vulnerable cross-user read returns exact synthetic canary | Confirmed finding includes deterministic assertion and receipt | PRD-F4 / US-04 |
 | H-05 | Same plan against repaired fixture returns authorization denial | Matched comparison says not reproduced for this check | PRD-F5 / US-05 |
-| H-05a | Owner reads the exact note in both profiles while the repaired profile denies Bob | The repair preserves allowed behavior and blocks forbidden behavior | PRD-F5 / US-05 |
+| H-05a | Note owner reads the exact record in both profiles while the repaired profile denies another account | The repair preserves allowed behavior and blocks forbidden behavior | PRD-F5 / US-05 |
 | H-05b | Export the approved synthetic promise as a regression script | The script passes against repaired and fails against vulnerable fixture | PRD-F8 / US-06 |
 | H-05c | Model proposes a promise unrelated to the registered brief | Plan is rejected before execution; no incorrect promise is presented as a valid result | PRD-F2 / US-02 |
 | H-06 | Export sanitized report | Export matches visible authorized projection; no secrets | PRD-F4 |
@@ -59,7 +59,7 @@ The fixture seed and revision must be part of each receipt. Test reset destroys 
 
 ## 4. Automation vs Manual Testing
 
-The local setup check validates document integrity through the existing FMD clone. Application CI must add schema, policy, verifier, SQLite persistence, adapter fault, and browser checks when code exists. Remote provider tests require a reviewed opt-in job and capped credentials. Manual checks cover keyboard use, responsive evidence panels, readable loading/partial/cancelled states, and a fresh judge installation.
+`python scripts/check_project_docs.py` validates repository-local document consistency; a separately supplied FMD v3.0.1 engine remains the strict validator. Local application and browser checks exist, but remote CI is not configured. CI must cover the existing contract, HTTP, comparison, export, build, and browser flows before adding persistence, adapter-fault, cancellation, and provider checks. Remote provider tests require a reviewed opt-in job and capped credentials. Manual checks still include a full screen-reader pass, physical-device review, readable remote partial/cancelled states, and a fresh judge installation.
 
 ## 5. Bug Triage
 

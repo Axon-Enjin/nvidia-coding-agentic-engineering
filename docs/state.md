@@ -2,7 +2,7 @@
 
 **Project slug:** `vibesec`
 **Owner:** Project owner
-**Last updated:** 2026-10-13
+**Last updated:** 2026-10-23
 
 ## 1. Position
 
@@ -27,14 +27,14 @@ No deployed service, real customer data, revenue/pricing decision, confirmed cus
 
 ## 3. Operating Frameworks
 
-Milestones and Quick Mode. Engineering maturity L0: local HTTP, contract, comparison, and export tests run; no remote CI configuration or provider test evidence exists. The FMD clone is unavailable in this fresh checkout, so documentation validation is pending. No persistent subagents. Research delegations produced source notes.
+Milestones and Quick Mode. Engineering maturity L0: local HTTP, contract, comparison, export, production-build, and browser checks have run; no remote CI configuration or provider test evidence exists. The external FMD v3.0.1 engine is not distributed with this repository. `scripts/check_project_docs.py` provides a repository-local consistency gate, while `scripts/fmd.py` continues to route to the strict external validator when one is supplied. No persistent subagents. Research delegations produced source notes.
 
 ## 4. Open Assumptions
 
 | ID | Assumption / unknown | Risk / owner | Resolve by |
 |----|----------------------|--------------|------------|
 | A1 | Owned synthetic fixture, bounded probe catalog, and a repaired comparison are the smallest useful VibeSec slice. | Narrower than full customer-target testing; project owner | Review against the first working demo |
-| A2 | Python control plane, single SQLite store, and native browser UI fit the first slice. | Provisional implementation choice; implementer | Spike and first dependency lock |
+| A2 | Python control plane, single SQLite store, and Vite/React/TypeScript frontend fit the first slice. | Python API and store remain provisional; implementer | Remote spike and first backend dependency lock |
 | A3 | Branching, explicit restart, network denial/loopback, cancellation, and receipt reconciliation work as planned. | Runtime feasibility unproven; implementer | Before enabling remote execution |
 | A4 | Nine probes, three active attempts, five-minute deadline, and PRD token limits are suitable. | Performance/cost targets unmeasured; implementer | Integration benchmark |
 | A5 | Composite persona represents a real review need. | Customer value unverified; project owner | Before external pilot or demand claims |
@@ -45,7 +45,7 @@ Milestones and Quick Mode. Engineering maturity L0: local HTTP, contract, compar
 | ID | Decision | Evidence class | Revisit |
 |----|----------|----------------|---------|
 | D1 | Complete VibeSec's FMD setup and continue from research to a usable draft product suite. | Human Decision: user's proceed request | Direction changes |
-| D2 | Use the existing FMD clone through thin platform pointers and a local command helper; remove duplicated engine files and their dependent CI. Supersedes the full stamp. | Human Decision: user's cleanup request on 2026-10-01 | Clone relocation or shared tooling need |
+| D2 | Keep the FMD engine external, retain thin platform pointers, and provide a repository-local consistency gate so this repository remains verifiable on its own. Supersedes the earlier assumption that every contributor has an FMD clone. | Human Decision: user's cleanup and single-repository clarification | Shared engine release or team workflow change |
 | D3 | Scrutiny: PROCEED WITH FIXES for the owned-fixture slice. | Agent-derived conclusion; primary-source audit linked in Scrutiny | Contradicting runtime evidence |
 | D4 | Model produces bounded plan data; code owns scope, execution limits, and confirmed findings. | Proposed design documented in PRD/SDD/RFC | Target or autonomy expansion |
 | D5 | Share the draft suite and portable development onboarding through this VibeSec repository. Documentation tooling is FMD v3.0.1. | Human Decision: user's repository update request; upgraded from the earlier 2.0.x baseline | Shared engine release or team workflow change |
@@ -53,15 +53,23 @@ Milestones and Quick Mode. Engineering maturity L0: local HTTP, contract, compar
 
 ## 6. Context Exclusions
 
-The original research report remains in the repo as historical hypothesis input. Do not promote its market, incident, pricing, acquisition, live-memory, or high-concurrency claims without source checks. Current product truth is the draft suite plus actual implementation evidence when it exists. Engine templates, guides, scripts, examples, benchmarks, and teaching material stay in the FMD clone.
+The original research report remains in the repo as historical hypothesis input. Do not promote its market, incident, pricing, acquisition, live-memory, or high-concurrency claims without source checks. Current product truth is the draft suite plus actual implementation evidence. FMD engine templates, guides, scripts, examples, benchmarks, and teaching material are external and are not required to run this product repository.
 
 ## 7. Next Actions
 
-1. Extend the local synthetic fixture proof to the disposable sandbox/inference proof in `research-vibesec.md`; record actual receipts and limits.
-2. Reconcile the execution decision, model ID, stack lock, and acceptance criteria with that evidence.
-3. Build PRD-F1 through PRD-F5, execute QAD, then prepare a judge deployment and recording with real readiness evidence.
+1. Verify a real NVIDIA planning call and record the exact available model ID, usage, errors, and account-specific constraints.
+2. Extend the owned local fixture comparison to the disposable Sandbox proof in `research-vibesec.md`; record branch independence, restart, network, deadline, cleanup, and receipt evidence.
+3. Add remote CI and deployment controls only after the provider proof passes, then execute the remaining QAD release rows and prepare a truthful judge build.
 
-**Completed setup:** Thin platform pointers to a separately located FMD clone; twelve core product artifacts plus source-research notes; project BRAND/DESIGN references; portable Python launcher, PowerShell helper, and optional pre-commit check; generated index and append-only log. README covers repository access and the local browser MVP. The duplicated engine payload and its dependent workflow were removed. A loopback UI, synthetic API, bounded local plan, deterministic before/after check, and fixture-specific test export now run; this is not remote proof. No paid API call, release, remote CI success, or successful provider test is claimed.
+**Current implementation:** This repository contains the complete local MVP and its product documents. It includes the Python loopback service, React/TypeScript/Vite/Tailwind frontend, registered synthetic briefs, reviewed local planning, deterministic vulnerable/repaired comparison, exact request and response evidence, JSON export, and fixture-specific Python regression export. It does not contain the external FMD engine. No paid API call, Sandbox execution, hosted release, remote CI success, or successful provider test is claimed.
+
+**Current interface:** The marketing homepage uses full-width charcoal navigation and hero, a conceptual permission-boundary artwork, a light workflow chapter, a dark evidence chapter, a Volt invitation, and the VibeSec eye/V identity. Aeonik carries marketing display text, Geist Pixel supplies the restrained pixel accent, Awesome Serif marks short judgment phrases, and IBM Plex carries interface and evidence text. Generated product illustrations depict permission boundaries and traceable request/response evidence rather than generic people or unrelated scenes. The operational workbench remains calmer and evidence-led.
+
+The dedicated workbench opens at `/?view=workbench`, preserves its workflow across client view changes, and starts a fresh frontend session on reload. Existing scope review, local execution, actual evidence, disclosures, exports, profile-name handling, focus, and busy-state protections remain. No backend implementation change was made during this refinement.
+
+**Verification boundary:** The current production frontend build passes. Earlier browser evidence covers the local comparisons, both exports, view/state retention, failure and inconclusive states, busy and focus protection, reduced motion, and widths from 320px through 1920px. Those captures remain implementation evidence, not a certification of accessibility, provider behavior, or security. The external FMD strict validator has not run in this checkout; the repository-local documentation gate passes independently and states that limitation.
+
+**Design evidence:** The implemented palette is Volt `#D6F542`, charcoal `#101315`, cool white `#F8F9FA`, foam `#F3F5F6`, and petrol blue `#006D93`/`#00536F`. Marketing motion is limited to one-shot entrances, restrained artwork depth, and a decorative pointer trail that preserves the native cursor and disables itself for touch, selection, scrolling, keyboard use, and reduced-motion preferences. Historical captures and bounded reference studies remain in the ignored local `.impeccable/` archive; they are development evidence and are not application imports.
 
 ## 8. Self-Check
 
